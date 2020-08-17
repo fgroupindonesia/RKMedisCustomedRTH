@@ -1,8 +1,22 @@
 ﻿Public Class ScheduleForm
+
+    Private _mainFrameRef As MainFrame
+    Public Property MainFrameRef() As MainFrame
+        Get
+            Return _mainFrameRef
+        End Get
+        Set(ByVal value As MainFrame)
+            _mainFrameRef = value
+        End Set
+    End Property
+
     Private Sub ComboBoxUsername_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxUsername.SelectedIndexChanged
         ' when changed then we must update the checkbox under ui
 
-        Dim user As String = ComboBoxUsername.SelectedText
+        Dim user As String = ComboBoxUsername.SelectedItem
+
+        CheckedListBoxPatient.Items.Clear()
+
         If (Mode = MODE_NEW) Then
 
 
@@ -17,6 +31,8 @@
     End Sub
 
     Private Sub ScheduleForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        MyForm.roundedCornerForm(Me)
 
         Database.getAllUser(ComboBoxUsername)
 
@@ -63,6 +79,7 @@
         Dim patientDataCheckedDirt As String() = patientChecked.Split("-")
         Dim patientId As Integer = patientDataCheckedDirt(0).Replace("[", "").Replace("]", "").Trim
 
+        Data.patient_id = patientId
 
         If (Mode = MyForm.MODE_EDIT) Then
 
@@ -74,7 +91,9 @@
             Await Database.saveSchedule(Data)
         End If
 
-        Me.Dispose()
+        'Me.Dispose()
+        LinkLabelClearScheduleForm.Visible = True
+        LinkLabelSaveScheduleForm.Visible = False
 
     End Sub
 
@@ -97,4 +116,18 @@
         End Set
     End Property
 
+    Private Sub LinkLabelClearScheduleForm_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelClearScheduleForm.LinkClicked
+        TextBoxKeluhan.Text = ""
+        CheckedListBoxPatient.Items.Clear()
+        DateTimePickerDateChosen.ResetText()
+        DateTimePickerTimeChosen.ResetText()
+
+        ComboBoxStatus.SelectedItem = "ok"
+        ComboBoxUsername.SelectedIndex = 0
+        ComboBoxTreatment.SelectedIndex = 0
+
+        LinkLabelClearScheduleForm.Visible = False
+        LinkLabelSaveScheduleForm.Visible = True
+
+    End Sub
 End Class

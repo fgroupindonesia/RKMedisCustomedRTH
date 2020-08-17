@@ -10,3 +10,10 @@ C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedis
 C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\obj\Debug\RKMedisCustomizedRTH.UserForm.resources
 C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\obj\Debug\RKMedisCustomizedRTH.vbproj.GenerateResource.Cache
 C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\obj\Debug\RKMedisCustomizedRTH.xml
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\bin\Debug\RKMedisCustomizedRTH.exe
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\bin\Debug\RKMedisCustomizedRTH.pdb
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\bin\Debug\RKMedisCustomizedRTH.xml
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\bin\Debug\Newtonsoft.Json.dll
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\bin\Debug\Newtonsoft.Json.xml
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\obj\Debug\RKMedisCustomizedRTH.exe
+C:\Users\asus\Documents\Projects\Visual Studio 2015\RKMedisCustomizedRTH\RKMedisCustomizedRTH\obj\Debug\RKMedisCustomizedRTH.pdb

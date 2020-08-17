@@ -2,6 +2,7 @@
 
 
     Private Sub MainFrame_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        roundedCornerForm(Me)
         doubleBufferingUI()
         applyLanguagesUI()
         prepareReferencing()
@@ -10,11 +11,13 @@
     End Sub
 
     Sub prepareReferencing()
+
         ' this is for the UI reference where the DB Calls started
         TableHelper.DataGridViewUser = DataGridViewUserManagement
         TableHelper.DataGridViewPatient = DataGridViewPatientManagement
         TableHelper.DataGridViewProduct = DataGridViewProductManagement
         TableHelper.DataGridViewOrder = DataGridViewOrderManagement
+        TableHelper.DataGridViewSchedule = DataGridViewScheduleManagement
 
         PanelRef.ProgressFormLabel = LabelLoadingUserManagement
 
@@ -85,6 +88,8 @@
 
     Private Sub ButtonScheduleManagementMain_Click(sender As Object, e As EventArgs) Handles ButtonScheduleManagementMain.Click
         Navigator.gotoPage(Navigator.PAGE_SCHEDULE_MANAGEMENT)
+        ' call the DB for refreshing the table
+        Database.getAllSchedule()
     End Sub
 
     Private Sub ButtonVisitManagementMain_Click(sender As Object, e As EventArgs) Handles ButtonVisitManagementMain.Click
@@ -141,6 +146,12 @@
     Sub showUserNotification(ByVal message As String, mode As Integer)
 
         MyForm.applyNotification(message, mode, LabelLoadingUserManagement)
+
+    End Sub
+
+    Sub showScheduleNotification(ByVal message As String, mode As Integer)
+
+        MyForm.applyNotification(message, mode, LabelLoadingScheduleManagement)
 
     End Sub
 
@@ -274,6 +285,38 @@
 
     Private Sub LinkLabelAddScheduleManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelAddScheduleManagement.LinkClicked
         Dim frame As New ScheduleForm
+
         frame.Show()
+    End Sub
+
+    Private Sub LinkLabelDeleteScheduleManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelDeleteScheduleManagement.LinkClicked
+        Dim idTerpilih As ArrayList = TableHelper.getCheckedRows(DataGridViewScheduleManagement)
+        For Each idNa As Integer In idTerpilih
+            Database.deleteSchedule(idNa)
+        Next
+    End Sub
+
+    Private Sub LinkLabelEditScheduleManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelEditScheduleManagement.LinkClicked
+        Dim data As ScheduleData = TableHelper.getScheduleManagementCheckedRow()
+        If (data IsNot Nothing) Then
+
+            Dim frame As New ScheduleForm
+            frame.MainFrameRef = Me
+            frame.Mode = MyForm.MODE_EDIT
+            frame.Data = data
+            frame.Visible = True
+
+            LabelLoadingScheduleManagement.Visible = False
+        Else
+            showScheduleNotification("Select data from the table first!", MyForm.NOTIFICATION_WARNING)
+        End If
+    End Sub
+
+    Private Sub SearchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SearchToolStripMenuItem.Click
+        ToolStripTextBoxSearch.Visible = Not ToolStripTextBoxSearch.Visible
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Application.Exit()
     End Sub
 End Class

@@ -175,12 +175,7 @@ Module Database
 
                 If (isValidStatus(dataIn) = True) Then
 
-                    If (PanelRef.ProgressFormLabel.Image IsNot Nothing) Then
-                        PanelRef.ProgressFormLabel.Image.Dispose()
-                    End If
-
-                    PanelRef.ProgressFormLabel.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.ok
-                    PanelRef.ProgressFormLabel.Text = "                   deleting data is success!"
+                    MyForm.showProgress(STATE_SUCCESS, "deleting data is success!")
 
                     ' refresh back the user table
                     getAllUser()
@@ -193,6 +188,50 @@ Module Database
             client.Dispose()
         Catch ex As Exception
             MessageBox.Show("Error on #136 " & ex.Message)
+            ErrorLogger.write(ex.Message & "\n" & ex.StackTrace)
+        End Try
+
+
+
+    End Function
+
+    Async Function deleteSchedule(ByVal anId As Integer) As Task
+
+        Dim client As HttpClient = New HttpClient
+        Dim arrayList As New ArrayList
+
+        Dim values As New Dictionary(Of String, String)
+        values.Add("id", anId)
+
+        Dim content As FormUrlEncodedContent = New FormUrlEncodedContent(values)
+
+        Dim endResult As String
+        Dim urlTarget As String = constructURL("request", "schedule/delete")
+        Dim dataResponse As HttpResponseMessage = Await client.PostAsync(urlTarget, content)
+
+        endResult = Await dataResponse.Content.ReadAsStringAsync()
+
+        ' parse the string
+        Try
+
+            Dim dataIn As JObject = JsonConvert.DeserializeObject(endResult)
+
+            If (dataIn IsNot Nothing) Then
+
+                If (isValidStatus(dataIn) = True) Then
+
+                    MyForm.showProgress(STATE_SUCCESS, "deleting data is success!")
+
+                    ' refresh back the schedule table
+                    getAllSchedule()
+
+                End If
+
+            End If
+
+            client.Dispose()
+        Catch ex As Exception
+            MessageBox.Show("Error on #235 " & ex.Message)
             ErrorLogger.write(ex.Message & "\n" & ex.StackTrace)
         End Try
 
@@ -594,14 +633,15 @@ Module Database
 
             Dim values As New Dictionary(Of String, String)
 
-            If (updateMode = True) Then
-                values.Add("id", anEntry.id)
-                values.Add("patient_id", anEntry.patient_id)
-                values.Add("username", WebUtility.UrlEncode(anEntry.username))
-                values.Add("date_choosen", WebUtility.UrlEncode(anEntry.date_choosen))
-                values.Add("keluhan", WebUtility.UrlEncode(anEntry.keluhan))
-                values.Add("treatment", WebUtility.UrlEncode(anEntry.treatment))
-            End If
+            ' If (updateMode = True) Then
+            values.Add("id", anEntry.id)
+            values.Add("patient_id", anEntry.patient_id)
+            values.Add("status", anEntry.status)
+            values.Add("username", WebUtility.UrlEncode(anEntry.username))
+            values.Add("date_choosen", WebUtility.UrlEncode(anEntry.date_choosen))
+            values.Add("keluhan", WebUtility.UrlEncode(anEntry.keluhan))
+            values.Add("treatment", WebUtility.UrlEncode(anEntry.treatment))
+            'End If
 
             Dim content As FormUrlEncodedContent = New FormUrlEncodedContent(values)
 

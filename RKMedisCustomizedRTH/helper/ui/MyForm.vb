@@ -39,6 +39,8 @@
 
         ' humanDateFormat is actually dd-mm-yyyy
         ' while computer based format is actually yyyy-mm-dd hh:mm:ss
+        Dim dataArray As String() = humanDateFormat.Split("-")
+        endVal = dataArray(2) & "-" & dataArray(1) & "-" & dataArray(0)
 
         Return endVal
 
@@ -214,6 +216,34 @@
         ElseIf (mode = NOTIFICATION_SUCCESS) Then
             labelElement.Image = Global.RKMedisCustomizedRTH.My.Resources.ok
         End If
+    End Sub
+
+    Sub roundedCornerForm(ByVal obj As Form)
+
+        'obj.FormBorderStyle = FormBorderStyle.None
+        ' obj.BackColor = Color.Cyan
+
+
+        Dim DGP As New Drawing2D.GraphicsPath
+        DGP.StartFigure()
+        'top left corner
+        DGP.AddArc(New Rectangle(0, 0, 5, 5), 180, 90)
+        DGP.AddLine(40, 0, obj.Width - 40, 0)
+
+        'top right corner
+        DGP.AddArc(New Rectangle(obj.Width - 40, 0, 65, 65), -90, 90)
+        DGP.AddLine(obj.Width, 40, obj.Width, obj.Height - 40)
+
+        'buttom right corner
+        DGP.AddArc(New Rectangle(obj.Width - 40, obj.Height - 40, 40, 40), 0, 90)
+        DGP.AddLine(obj.Width - 40, obj.Height, 40, obj.Height)
+
+        'buttom left corner
+        DGP.AddArc(New Rectangle(0, obj.Height - 40, 40, 40), 90, 90)
+        DGP.CloseFigure()
+
+        obj.Region = New Region(DGP)
+
     End Sub
 
 End Module

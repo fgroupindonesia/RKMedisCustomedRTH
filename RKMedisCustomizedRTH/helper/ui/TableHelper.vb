@@ -160,33 +160,24 @@
 
     Public Sub refreshTableSchedule(ByVal entries As ArrayList)
 
-        If (DataGridViewSch IsNot Nothing) Then
+        If (DataGridViewSchedule IsNot Nothing) Then
             DataGridViewSchedule.Rows.Clear()
         End If
 
         For Each satuan As ScheduleData In entries
             Dim row As Object() = New Object() {False,
                 satuan.id,
-                satuan.full_name,
-                satuan.sex,
-                satuan.status_marriage,
-                satuan.birth_place,
-                satuan.birth_date,
-                satuan.age,
-                satuan.religion,
-                satuan.last_education,
-                satuan.work,
-                satuan.address,
-                satuan.email,
-                satuan.status_file,
-                satuan.handphone,
-                satuan.username_privilege,
-                satuan.date_created,
-                satuan.no_ktp
+                satuan.patient_id,
+                satuan.username,
+                satuan.keluhan,
+                satuan.treatment,
+                satuan.status,
+                satuan.date_choosen,
+                satuan.date_created
             }
 
-            If (DataGridViewPatient IsNot Nothing) Then
-                DataGridViewPatient.Rows.Add(row)
+            If (DataGridViewSchedule IsNot Nothing) Then
+                DataGridViewSchedule.Rows.Add(row)
             End If
 
         Next
@@ -327,6 +318,33 @@
         Next
 
         Return dataUser
+
+    End Function
+
+
+    Function getScheduleManagementCheckedRow() As ScheduleData
+
+        Dim dataSchedule As ScheduleData = Nothing
+
+        For Each r As DataGridViewRow In DataGridViewUser.Rows
+            Dim checked As Boolean = r.Cells(0).Value
+            If (checked) Then
+
+                dataSchedule = New ScheduleData
+                dataSchedule.id = r.Cells(1).Value
+                dataSchedule.patient_id = r.Cells(2).Value
+                dataSchedule.username = r.Cells(3).Value
+                dataSchedule.keluhan = r.Cells(4).Value
+                dataSchedule.treatment = r.Cells(5).Value
+                dataSchedule.status = r.Cells(6).Value
+                dataSchedule.date_choosen = r.Cells(7).Value
+                dataSchedule.date_created = r.Cells(8).Value
+
+                Exit For
+            End If
+        Next
+
+        Return dataSchedule
 
     End Function
 

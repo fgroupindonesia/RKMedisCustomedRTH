@@ -23,8 +23,6 @@ Partial Class ScheduleForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScheduleForm))
-        Me.LabelLoadingScheduleForm = New System.Windows.Forms.Label()
-        Me.LinkLabelSaveScheduleForm = New System.Windows.Forms.LinkLabel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ComboBoxTreatment = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -40,31 +38,10 @@ Partial Class ScheduleForm
         Me.TextBoxKeluhan = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.LinkLabelClearScheduleForm = New System.Windows.Forms.LinkLabel()
+        Me.LabelLoadingScheduleForm = New System.Windows.Forms.Label()
+        Me.LinkLabelSaveScheduleForm = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
-        '
-        'LabelLoadingScheduleForm
-        '
-        Me.LabelLoadingScheduleForm.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
-        Me.LabelLoadingScheduleForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingScheduleForm.Location = New System.Drawing.Point(206, 69)
-        Me.LabelLoadingScheduleForm.Name = "LabelLoadingScheduleForm"
-        Me.LabelLoadingScheduleForm.Size = New System.Drawing.Size(258, 42)
-        Me.LabelLoadingScheduleForm.TabIndex = 38
-        Me.LabelLoadingScheduleForm.Text = "Loading..."
-        Me.LabelLoadingScheduleForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingScheduleForm.Visible = False
-        '
-        'LinkLabelSaveScheduleForm
-        '
-        Me.LinkLabelSaveScheduleForm.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.save
-        Me.LinkLabelSaveScheduleForm.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelSaveScheduleForm.Location = New System.Drawing.Point(457, 58)
-        Me.LinkLabelSaveScheduleForm.Name = "LinkLabelSaveScheduleForm"
-        Me.LinkLabelSaveScheduleForm.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelSaveScheduleForm.TabIndex = 37
-        Me.LinkLabelSaveScheduleForm.TabStop = True
-        Me.LinkLabelSaveScheduleForm.Text = "Save"
-        Me.LinkLabelSaveScheduleForm.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'Label6
         '
@@ -200,11 +177,49 @@ Partial Class ScheduleForm
         Me.Label8.TabIndex = 52
         Me.Label8.Text = "Time :"
         '
+        'LinkLabelClearScheduleForm
+        '
+        Me.LinkLabelClearScheduleForm.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.clear2
+        Me.LinkLabelClearScheduleForm.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelClearScheduleForm.Location = New System.Drawing.Point(395, 59)
+        Me.LinkLabelClearScheduleForm.Name = "LinkLabelClearScheduleForm"
+        Me.LinkLabelClearScheduleForm.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelClearScheduleForm.TabIndex = 53
+        Me.LinkLabelClearScheduleForm.TabStop = True
+        Me.LinkLabelClearScheduleForm.Text = "Clear"
+        Me.LinkLabelClearScheduleForm.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.LinkLabelClearScheduleForm.Visible = False
+        '
+        'LabelLoadingScheduleForm
+        '
+        Me.LabelLoadingScheduleForm.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
+        Me.LabelLoadingScheduleForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingScheduleForm.Location = New System.Drawing.Point(13, 69)
+        Me.LabelLoadingScheduleForm.Name = "LabelLoadingScheduleForm"
+        Me.LabelLoadingScheduleForm.Size = New System.Drawing.Size(258, 42)
+        Me.LabelLoadingScheduleForm.TabIndex = 38
+        Me.LabelLoadingScheduleForm.Text = "Loading..."
+        Me.LabelLoadingScheduleForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingScheduleForm.Visible = False
+        '
+        'LinkLabelSaveScheduleForm
+        '
+        Me.LinkLabelSaveScheduleForm.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.save
+        Me.LinkLabelSaveScheduleForm.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelSaveScheduleForm.Location = New System.Drawing.Point(457, 58)
+        Me.LinkLabelSaveScheduleForm.Name = "LinkLabelSaveScheduleForm"
+        Me.LinkLabelSaveScheduleForm.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelSaveScheduleForm.TabIndex = 37
+        Me.LinkLabelSaveScheduleForm.TabStop = True
+        Me.LinkLabelSaveScheduleForm.Text = "Save"
+        Me.LinkLabelSaveScheduleForm.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
         'ScheduleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(528, 380)
+        Me.Controls.Add(Me.LinkLabelClearScheduleForm)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TextBoxKeluhan)
@@ -226,6 +241,7 @@ Partial Class ScheduleForm
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ScheduleForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Schedule Form"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -249,4 +265,5 @@ Partial Class ScheduleForm
     Friend WithEvents TextBoxKeluhan As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents LinkLabelClearScheduleForm As LinkLabel
 End Class
