@@ -88,6 +88,7 @@
     <Compile Include="helper\db\bean\ScheduleData.vb" />
     <Compile Include="helper\db\bean\SecondHistoryRecord.vb" />
     <Compile Include="helper\db\bean\UserData.vb" />
+    <Compile Include="helper\db\bean\VisitData.vb" />
     <Compile Include="helper\db\controller\Database.vb" />
     <Compile Include="helper\logger\Session.vb" />
     <Compile Include="OrderForm.Designer.vb">
@@ -124,6 +125,12 @@
       <DependentUpon>UserForm.vb</DependentUpon>
     </Compile>
     <Compile Include="UserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisitForm.Designer.vb">
+      <DependentUpon>VisitForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VisitForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Content Include="helper\language\readme.txt" />
@@ -204,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitForm.resx">
+      <DependentUpon>VisitForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

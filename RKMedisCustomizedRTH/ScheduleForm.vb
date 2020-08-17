@@ -1,4 +1,6 @@
-﻿Public Class ScheduleForm
+﻿Imports System.Net
+
+Public Class ScheduleForm
 
     Private _mainFrameRef As MainFrame
     Public Property MainFrameRef() As MainFrame
@@ -30,25 +32,29 @@
 
     End Sub
 
-    Private Sub ScheduleForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub ScheduleForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         MyForm.roundedCornerForm(Me)
 
-        Database.getAllUser(ComboBoxUsername)
+        Await Database.getAllUser(ComboBoxUsername)
 
         If (Mode = MODE_NEW) Then
         Else
-            TextBoxKeluhan.Text = Data.keluhan
-            ComboBoxTreatment.SelectedItem = Data.treatment
+            ' this just an escape of unsimbolic pattern such as spaces etc...
+            TextBoxKeluhan.Text = WebUtility.UrlDecode(Data.keluhan)
+            ComboBoxTreatment.SelectedItem = WebUtility.UrlDecode(Data.treatment)
             ComboBoxUsername.SelectedItem = Data.username
             ComboBoxStatus.SelectedItem = Data.status
 
             ' convert from yyyy-mm-dd hh:mm:ss format splitted to
             ' each separated different values
             Dim dateVal As String() = Data.date_choosen.Split(" ")
+            Dim dateOnly As String() = dateVal(0).Split("-")
 
-            DateTimePickerDateChosen.Value = MyForm.getUserDateFormat(dateVal(0))
-            DateTimePickerTimeChosen.Value = DateVal(1)
+            Dim dateChoosen As New Date(dateOnly(0), dateOnly(1), dateOnly(2))
+            DateTimePickerDateChosen.Value = dateChoosen
+
+            DateTimePickerTimeChosen.Text = dateVal(1)
 
         End If
 
@@ -128,6 +134,8 @@
 
         LinkLabelClearScheduleForm.Visible = False
         LinkLabelSaveScheduleForm.Visible = True
+
+        LabelLoadingScheduleForm.Visible = False
 
     End Sub
 End Class

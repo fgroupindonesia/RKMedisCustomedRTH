@@ -239,6 +239,50 @@ Module Database
 
     End Function
 
+    Async Function deleteVisit(ByVal anId As Integer) As Task
+
+        Dim client As HttpClient = New HttpClient
+        Dim arrayList As New ArrayList
+
+        Dim values As New Dictionary(Of String, String)
+        values.Add("id", anId)
+
+        Dim content As FormUrlEncodedContent = New FormUrlEncodedContent(values)
+
+        Dim endResult As String
+        Dim urlTarget As String = constructURL("visit", "delete")
+        Dim dataResponse As HttpResponseMessage = Await client.PostAsync(urlTarget, content)
+
+        endResult = Await dataResponse.Content.ReadAsStringAsync()
+
+        ' parse the string
+        Try
+
+            Dim dataIn As JObject = JsonConvert.DeserializeObject(endResult)
+
+            If (dataIn IsNot Nothing) Then
+
+                If (isValidStatus(dataIn) = True) Then
+
+                    MyForm.showProgress(STATE_SUCCESS, "deleting data is success!")
+
+                    ' refresh back the visit table
+                    getAllVisit()
+
+                End If
+
+            End If
+
+            client.Dispose()
+        Catch ex As Exception
+            MessageBox.Show("Error on #278 " & ex.Message)
+            ErrorLogger.write(ex.Message & "\n" & ex.StackTrace)
+        End Try
+
+
+
+    End Function
+
     Async Function deleteOrderItem(ByVal anId As Integer) As Task
 
         Dim client As HttpClient = New HttpClient
@@ -693,6 +737,83 @@ Module Database
 
     End Function
 
+    Async Function saveVisit(ByVal anEntry As VisitData, Optional updateMode As Boolean = False, Optional visitFormRef As VisitForm = Nothing) As Task
+
+        Dim client As HttpClient = New HttpClient
+
+        Dim endResult As String
+
+
+        ' parse the string
+        Try
+
+            ' we are escaping the limit exceed by converting into json object
+            ' Dim stringPayload As String = JsonConvert.SerializeObject(anEntry)
+            ' Dim content As StringContent = New StringContent(stringPayload, Encoding.UTF8, "application/json")
+
+            Dim values As New Dictionary(Of String, String)
+
+            ' If (updateMode = True) Then
+            values.Add("id", anEntry.id)
+            values.Add("patient_id", anEntry.patient_id)
+            values.Add("date_visited", anEntry.date_visited)
+            values.Add("date_future_visit", anEntry.date_future_visit)
+            values.Add("weight", anEntry.weight)
+            values.Add("treatment", anEntry.treatment)
+            values.Add("blood_pressure", WebUtility.UrlEncode(anEntry.blood_pressure))
+            values.Add("description", WebUtility.UrlEncode(anEntry.description))
+            'End If
+
+            Dim content As FormUrlEncodedContent = New FormUrlEncodedContent(values)
+
+            Dim urlTarget As String
+
+            If (updateMode = True) Then
+                urlTarget = constructURL("visit", "update")
+            Else
+                urlTarget = constructURL("visit", "add")
+            End If
+
+            Dim dataResponse As HttpResponseMessage = Await client.PostAsync(urlTarget, content)
+
+            endResult = Await dataResponse.Content.ReadAsStringAsync()
+
+            Dim dataIn As JObject = JsonConvert.DeserializeObject(endResult)
+
+            If (dataIn IsNot Nothing) Then
+
+                If (isValidStatus(dataIn) = True) Then
+
+                    If (updateMode) Then
+                        MyForm.showProgress(STATE_SUCCESS, "data is successfully updated!")
+                    Else
+                        MyForm.showProgress(STATE_SUCCESS, "data is successfully saved!")
+                    End If
+
+                    ' refresh back the visit main table
+                    getAllVisit()
+
+                    ' close the active form
+                    If (visitFormRef IsNot Nothing) Then
+                        visitFormRef.Dispose()
+                    End If
+
+                Else
+                    ' when error
+                    MyForm.showProgress(MyForm.STATE_ERROR, "Error Saving Patient Visit data!")
+
+                End If
+
+            End If
+
+            client.Dispose()
+        Catch ex As Exception
+            MessageBox.Show("Error on #810 " & ex.Message)
+            ErrorLogger.write(ex.Message & "\n" & ex.StackTrace)
+        End Try
+
+    End Function
+
     Async Function saveOrder(ByVal aMainArray As ArrayList, invoiceCode As String, paymentMode As String, Optional updateMode As Boolean = False) As Task
 
         Dim client As HttpClient = New HttpClient
@@ -1020,6 +1141,63 @@ Module Database
 
 
     End Function
+
+    Async Function getAllVisit() As Task
+
+        Dim client As HttpClient = New HttpClient
+
+        Dim arrayList As New ArrayList
+
+        Dim values As New Dictionary(Of String, String)
+        'values.Add("email",)
+
+        Dim content As FormUrlEncodedContent = New FormUrlEncodedContent(values)
+
+        Dim endResult As String
+        Dim urlTarget As String = constructURL("visit", "all")
+        Dim dataResponse As HttpResponseMessage = Await client.PostAsync(urlTarget, content)
+
+        endResult = Await dataResponse.Content.ReadAsStringAsync()
+
+        ' parse the string
+        Try
+
+            Dim dataIn As JObject = JsonConvert.DeserializeObject(endResult)
+
+            If (dataIn IsNot Nothing) Then
+
+                If (isValidStatus(dataIn) = True) Then
+                    ' parse the multi_data as array
+                    Dim dataMulti As String = dataIn.GetValue("multi_data").ToString
+                    Dim deretanData As VisitData() = JsonConvert.DeserializeObject(Of VisitData())(dataMulti)
+
+                    If (deretanData IsNot Nothing) Then
+
+                        For Each dataSatuan As VisitData In deretanData
+                            arrayList.Add(dataSatuan)
+                        Next
+
+
+
+                    End If
+
+                End If
+
+                'updating the datagridview table
+                TableHelper.refreshTableVisit(arrayList)
+
+            End If
+
+            client.Dispose()
+        Catch ex As Exception
+            MessageBox.Show("Error on #1116 " & ex.Message)
+            ErrorLogger.write(ex.Message & "\n" & ex.StackTrace)
+        End Try
+
+
+
+    End Function
+
 
     Async Function getAllPatientByUsername(ByVal usernamePatokan As String, checkedList As CheckedListBox, Optional patientID As Integer = -1) As Task
 

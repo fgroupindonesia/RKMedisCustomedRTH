@@ -24,6 +24,25 @@ Partial Class MainFrame
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainFrame))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BahasaIndonesiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnglishToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportBugsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripTextBoxSearch = New System.Windows.Forms.ToolStripTextBox()
         Me.PanelLogin = New System.Windows.Forms.Panel()
         Me.GroupBoxLogin = New System.Windows.Forms.GroupBox()
@@ -34,15 +53,26 @@ Partial Class MainFrame
         Me.TextBoxPasswordLogin = New System.Windows.Forms.TextBox()
         Me.LabelVersionApp = New System.Windows.Forms.Label()
         Me.LabelAppName = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelHome = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ButtonVisitManagementMain = New System.Windows.Forms.Button()
+        Me.ButtonScheduleManagementMain = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ButtonOrderManagementMain = New System.Windows.Forms.Button()
+        Me.ButtonProductManagementMain = New System.Windows.Forms.Button()
+        Me.ButtonPatientManagementMain = New System.Windows.Forms.Button()
+        Me.ButtonUserManagementMain = New System.Windows.Forms.Button()
         Me.PanelBlank = New System.Windows.Forms.Panel()
         Me.PanelUserManagement = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.LinkLabelAddUserManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelEditUserManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelDeleteUserManagement = New System.Windows.Forms.LinkLabel()
+        Me.PictureBoxBackUserManagement = New System.Windows.Forms.PictureBox()
         Me.TableLayoutNavUserManagement = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.DataGridViewUserManagement = New System.Windows.Forms.DataGridView()
@@ -56,9 +86,15 @@ Partial Class MainFrame
         Me.ColumnAddressUserManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnPropicUserManagement = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.ColumnDateCreatedUserManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelLoadingUserManagement = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PanelPatientManagement = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.LinkLabelAddPatientManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelEditPatientManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelDeletePatientManagement = New System.Windows.Forms.LinkLabel()
+        Me.PictureBoxBackPatientManagement = New System.Windows.Forms.PictureBox()
         Me.TableLayoutNavPatientManagement = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridViewPatientManagement = New System.Windows.Forms.DataGridView()
         Me.ColumnCheckboxPatientManagement = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -79,9 +115,15 @@ Partial Class MainFrame
         Me.ColumnUsernamePrivilledge = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnDateCreatedPatientManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnNoIDCardPatientManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelLoadingPatientManagement = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PanelProductManagement = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.LinkLabelAddProductManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelEditProductManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelDeleteProductManagement = New System.Windows.Forms.LinkLabel()
+        Me.PictureBoxBackProductManagement = New System.Windows.Forms.PictureBox()
         Me.TableLayoutNavProductManagement = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridViewProductManagement = New System.Windows.Forms.DataGridView()
         Me.ColumnCheckboxProductManagement = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -94,9 +136,15 @@ Partial Class MainFrame
         Me.ColumnImageFileProductManagement = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.ColumnImageFileHideProductManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnStatusProductManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelLoadingProductManagement = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.PanelOrderManagement = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.LinkLabelAddOrderManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelEditOrderManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelDeleteOrderManagement = New System.Windows.Forms.LinkLabel()
+        Me.PictureBoxBackOrderManagement = New System.Windows.Forms.PictureBox()
         Me.TableLayoutNavOrderManagement = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridViewOrderManagement = New System.Windows.Forms.DataGridView()
         Me.ColumnCheckboxOrderManagement = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -109,9 +157,15 @@ Partial Class MainFrame
         Me.ColumnPaymentMethodOrderManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnStatusOrderManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnDateCreatedOrderManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelLoadingOrderManagement = New System.Windows.Forms.Label()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PanelScheduleManagement = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.LinkLabelAddScheduleManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelEditScheduleManagement = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelDeleteScheduleManagement = New System.Windows.Forms.LinkLabel()
+        Me.PictureBoxBackScheduleManagement = New System.Windows.Forms.PictureBox()
         Me.TableLayoutNavScheduleManagement = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridViewScheduleManagement = New System.Windows.Forms.DataGridView()
         Me.ColumnChecklistScheduleManagement = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -123,110 +177,65 @@ Partial Class MainFrame
         Me.ColumnStatusScheduleManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnDateChosenScheduleManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnDateCreatedScheduleManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelLoadingScheduleManagement = New System.Windows.Forms.Label()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.PanelVisitManagement = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.TableLayoutNavVisitManagement = New System.Windows.Forms.TableLayoutPanel()
-        Me.DataGridViewVisitManagement = New System.Windows.Forms.DataGridView()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabelAddScheduleManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelEditScheduleManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelDeleteScheduleManagement = New System.Windows.Forms.LinkLabel()
-        Me.PictureBoxBackScheduleManagement = New System.Windows.Forms.PictureBox()
-        Me.LabelLoadingScheduleManagement = New System.Windows.Forms.Label()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.LinkLabelAddVisitManagement = New System.Windows.Forms.LinkLabel()
         Me.LinkLabelEditVisitManagement = New System.Windows.Forms.LinkLabel()
         Me.LinkLabelDeleteVisitManagement = New System.Windows.Forms.LinkLabel()
         Me.PictureBoxBackVisitManagement = New System.Windows.Forms.PictureBox()
+        Me.TableLayoutNavVisitManagement = New System.Windows.Forms.TableLayoutPanel()
+        Me.DataGridViewVisitManagement = New System.Windows.Forms.DataGridView()
         Me.LabelLoadingVisitManagement = New System.Windows.Forms.Label()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabelAddOrderManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelEditOrderManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelDeleteOrderManagement = New System.Windows.Forms.LinkLabel()
-        Me.PictureBoxBackOrderManagement = New System.Windows.Forms.PictureBox()
-        Me.LabelLoadingOrderManagement = New System.Windows.Forms.Label()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabelAddProductManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelEditProductManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelDeleteProductManagement = New System.Windows.Forms.LinkLabel()
-        Me.PictureBoxBackProductManagement = New System.Windows.Forms.PictureBox()
-        Me.LabelLoadingProductManagement = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.ButtonVisitManagementMain = New System.Windows.Forms.Button()
-        Me.ButtonScheduleManagementMain = New System.Windows.Forms.Button()
-        Me.ButtonOrderManagementMain = New System.Windows.Forms.Button()
-        Me.ButtonProductManagementMain = New System.Windows.Forms.Button()
-        Me.ButtonPatientManagementMain = New System.Windows.Forms.Button()
-        Me.ButtonUserManagementMain = New System.Windows.Forms.Button()
-        Me.LinkLabelAddPatientManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelEditPatientManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelDeletePatientManagement = New System.Windows.Forms.LinkLabel()
-        Me.PictureBoxBackPatientManagement = New System.Windows.Forms.PictureBox()
-        Me.LabelLoadingPatientManagement = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabelAddUserManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelEditUserManagement = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabelDeleteUserManagement = New System.Windows.Forms.LinkLabel()
-        Me.PictureBoxBackUserManagement = New System.Windows.Forms.PictureBox()
-        Me.LabelLoadingUserManagement = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BahasaIndonesiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnglishToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportBugsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ColumnCheckboxVisitManagement = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ColumnIdVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnPatientIdVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnDateVisitedVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnDateFutureVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnTreatmentVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnWeightVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnBloodPressureVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColumnDescriptionVisitManagement = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLogin.SuspendLayout()
         Me.GroupBoxLogin.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelHome.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PanelUserManagement.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
+        CType(Me.PictureBoxBackUserManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewUserManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPatientManagement.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
+        CType(Me.PictureBoxBackPatientManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewPatientManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelProductManagement.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
+        CType(Me.PictureBoxBackProductManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewProductManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelOrderManagement.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
+        CType(Me.PictureBoxBackOrderManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewOrderManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelScheduleManagement.SuspendLayout()
         Me.FlowLayoutPanel5.SuspendLayout()
+        CType(Me.PictureBoxBackScheduleManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewScheduleManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelVisitManagement.SuspendLayout()
         Me.FlowLayoutPanel6.SuspendLayout()
-        CType(Me.DataGridViewVisitManagement, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxBackScheduleManagement, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxBackVisitManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewVisitManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxBackOrderManagement, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxBackProductManagement, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxBackPatientManagement, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxBackUserManagement, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -237,6 +246,151 @@ Partial Class MainFrame
         Me.MenuStrip1.Size = New System.Drawing.Size(748, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.note
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.search
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.ShortcutKeyDisplayString = ""
+        Me.SearchToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.SearchToolStripMenuItem.Text = "Search"
+        '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.logout
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.LogoutToolStripMenuItem.Text = "Logout"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._exit
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.LanguageToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.settings
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(74, 20)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'DatabaseToolStripMenuItem
+        '
+        Me.DatabaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModeToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ExportToolStripMenuItem})
+        Me.DatabaseToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.database
+        Me.DatabaseToolStripMenuItem.Name = "DatabaseToolStripMenuItem"
+        Me.DatabaseToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.DatabaseToolStripMenuItem.Text = "Database"
+        '
+        'ModeToolStripMenuItem
+        '
+        Me.ModeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnlineToolStripMenuItem, Me.OfflineToolStripMenuItem})
+        Me.ModeToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.mode
+        Me.ModeToolStripMenuItem.Name = "ModeToolStripMenuItem"
+        Me.ModeToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ModeToolStripMenuItem.Text = "Mode"
+        '
+        'OnlineToolStripMenuItem
+        '
+        Me.OnlineToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.ok
+        Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
+        Me.OnlineToolStripMenuItem.Text = "Online"
+        '
+        'OfflineToolStripMenuItem
+        '
+        Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
+        Me.OfflineToolStripMenuItem.Text = "Offline"
+        '
+        'ImportToolStripMenuItem
+        '
+        Me.ImportToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.import
+        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
+        Me.ImportToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportToolStripMenuItem.Text = "Import"
+        '
+        'ExportToolStripMenuItem
+        '
+        Me.ExportToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.export
+        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
+        Me.ExportToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ExportToolStripMenuItem.Text = "Export"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._option
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.OptionsToolStripMenuItem.Text = "Options"
+        '
+        'LanguageToolStripMenuItem
+        '
+        Me.LanguageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BahasaIndonesiaToolStripMenuItem, Me.EnglishToolStripMenuItem})
+        Me.LanguageToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.chat
+        Me.LanguageToolStripMenuItem.Name = "LanguageToolStripMenuItem"
+        Me.LanguageToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.LanguageToolStripMenuItem.Text = "Language"
+        '
+        'BahasaIndonesiaToolStripMenuItem
+        '
+        Me.BahasaIndonesiaToolStripMenuItem.Enabled = False
+        Me.BahasaIndonesiaToolStripMenuItem.Name = "BahasaIndonesiaToolStripMenuItem"
+        Me.BahasaIndonesiaToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.BahasaIndonesiaToolStripMenuItem.Text = "Bahasa Indonesia"
+        '
+        'EnglishToolStripMenuItem
+        '
+        Me.EnglishToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.ok
+        Me.EnglishToolStripMenuItem.Name = "EnglishToolStripMenuItem"
+        Me.EnglishToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.EnglishToolStripMenuItem.Text = "English"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.ReportBugsToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.help
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.info
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'ReportBugsToolStripMenuItem
+        '
+        Me.ReportBugsToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.reportbugs
+        Me.ReportBugsToolStripMenuItem.Name = "ReportBugsToolStripMenuItem"
+        Me.ReportBugsToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.ReportBugsToolStripMenuItem.Text = "Report Bugs"
         '
         'ToolStripTextBoxSearch
         '
@@ -335,6 +489,15 @@ Partial Class MainFrame
         Me.LabelAppName.Text = "RTH - Rumah Terapi Herbal"
         Me.LabelAppName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.logo_rth_app
+        Me.PictureBox1.Location = New System.Drawing.Point(101, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(229, 197)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'PanelHome
         '
         Me.PanelHome.Controls.Add(Me.Label1)
@@ -361,6 +524,30 @@ Partial Class MainFrame
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Main Menu"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ButtonVisitManagementMain
+        '
+        Me.ButtonVisitManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.datevisit
+        Me.ButtonVisitManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonVisitManagementMain.Location = New System.Drawing.Point(318, 182)
+        Me.ButtonVisitManagementMain.Name = "ButtonVisitManagementMain"
+        Me.ButtonVisitManagementMain.Size = New System.Drawing.Size(117, 95)
+        Me.ButtonVisitManagementMain.TabIndex = 6
+        Me.ButtonVisitManagementMain.Text = "Visit Management"
+        Me.ButtonVisitManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ButtonVisitManagementMain.UseVisualStyleBackColor = True
+        '
+        'ButtonScheduleManagementMain
+        '
+        Me.ButtonScheduleManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._date
+        Me.ButtonScheduleManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonScheduleManagementMain.Location = New System.Drawing.Point(146, 182)
+        Me.ButtonScheduleManagementMain.Name = "ButtonScheduleManagementMain"
+        Me.ButtonScheduleManagementMain.Size = New System.Drawing.Size(117, 95)
+        Me.ButtonScheduleManagementMain.TabIndex = 5
+        Me.ButtonScheduleManagementMain.Text = "Schedule Management"
+        Me.ButtonScheduleManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ButtonScheduleManagementMain.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -401,6 +588,54 @@ Partial Class MainFrame
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Last Registered User :"
         '
+        'ButtonOrderManagementMain
+        '
+        Me.ButtonOrderManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.checkbook
+        Me.ButtonOrderManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonOrderManagementMain.Location = New System.Drawing.Point(559, 65)
+        Me.ButtonOrderManagementMain.Name = "ButtonOrderManagementMain"
+        Me.ButtonOrderManagementMain.Size = New System.Drawing.Size(117, 95)
+        Me.ButtonOrderManagementMain.TabIndex = 3
+        Me.ButtonOrderManagementMain.Text = "Order Management"
+        Me.ButtonOrderManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ButtonOrderManagementMain.UseVisualStyleBackColor = True
+        '
+        'ButtonProductManagementMain
+        '
+        Me.ButtonProductManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.shopping
+        Me.ButtonProductManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonProductManagementMain.Location = New System.Drawing.Point(403, 65)
+        Me.ButtonProductManagementMain.Name = "ButtonProductManagementMain"
+        Me.ButtonProductManagementMain.Size = New System.Drawing.Size(117, 95)
+        Me.ButtonProductManagementMain.TabIndex = 2
+        Me.ButtonProductManagementMain.Text = "Product Management"
+        Me.ButtonProductManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ButtonProductManagementMain.UseVisualStyleBackColor = True
+        '
+        'ButtonPatientManagementMain
+        '
+        Me.ButtonPatientManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.patient
+        Me.ButtonPatientManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonPatientManagementMain.Location = New System.Drawing.Point(236, 65)
+        Me.ButtonPatientManagementMain.Name = "ButtonPatientManagementMain"
+        Me.ButtonPatientManagementMain.Size = New System.Drawing.Size(117, 95)
+        Me.ButtonPatientManagementMain.TabIndex = 1
+        Me.ButtonPatientManagementMain.Text = "Patient Management"
+        Me.ButtonPatientManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ButtonPatientManagementMain.UseVisualStyleBackColor = True
+        '
+        'ButtonUserManagementMain
+        '
+        Me.ButtonUserManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.user
+        Me.ButtonUserManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonUserManagementMain.Location = New System.Drawing.Point(61, 65)
+        Me.ButtonUserManagementMain.Name = "ButtonUserManagementMain"
+        Me.ButtonUserManagementMain.Size = New System.Drawing.Size(117, 95)
+        Me.ButtonUserManagementMain.TabIndex = 0
+        Me.ButtonUserManagementMain.Text = "User Management"
+        Me.ButtonUserManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ButtonUserManagementMain.UseVisualStyleBackColor = True
+        '
         'PanelBlank
         '
         Me.PanelBlank.Dock = System.Windows.Forms.DockStyle.Fill
@@ -436,6 +671,56 @@ Partial Class MainFrame
         Me.FlowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(252, 67)
         Me.FlowLayoutPanel1.TabIndex = 16
+        '
+        'LinkLabelAddUserManagement
+        '
+        Me.LinkLabelAddUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LinkLabelAddUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
+        Me.LinkLabelAddUserManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelAddUserManagement.Location = New System.Drawing.Point(3, 0)
+        Me.LinkLabelAddUserManagement.Name = "LinkLabelAddUserManagement"
+        Me.LinkLabelAddUserManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelAddUserManagement.TabIndex = 0
+        Me.LinkLabelAddUserManagement.TabStop = True
+        Me.LinkLabelAddUserManagement.Text = "Add"
+        Me.LinkLabelAddUserManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelEditUserManagement
+        '
+        Me.LinkLabelEditUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LinkLabelEditUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
+        Me.LinkLabelEditUserManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelEditUserManagement.Location = New System.Drawing.Point(65, 0)
+        Me.LinkLabelEditUserManagement.Name = "LinkLabelEditUserManagement"
+        Me.LinkLabelEditUserManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelEditUserManagement.TabIndex = 1
+        Me.LinkLabelEditUserManagement.TabStop = True
+        Me.LinkLabelEditUserManagement.Text = "Edit"
+        Me.LinkLabelEditUserManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelDeleteUserManagement
+        '
+        Me.LinkLabelDeleteUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LinkLabelDeleteUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
+        Me.LinkLabelDeleteUserManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelDeleteUserManagement.Location = New System.Drawing.Point(127, 0)
+        Me.LinkLabelDeleteUserManagement.Name = "LinkLabelDeleteUserManagement"
+        Me.LinkLabelDeleteUserManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelDeleteUserManagement.TabIndex = 2
+        Me.LinkLabelDeleteUserManagement.TabStop = True
+        Me.LinkLabelDeleteUserManagement.Text = "Delete"
+        Me.LinkLabelDeleteUserManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'PictureBoxBackUserManagement
+        '
+        Me.PictureBoxBackUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxBackUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
+        Me.PictureBoxBackUserManagement.Location = New System.Drawing.Point(21, 111)
+        Me.PictureBoxBackUserManagement.Name = "PictureBoxBackUserManagement"
+        Me.PictureBoxBackUserManagement.Size = New System.Drawing.Size(45, 45)
+        Me.PictureBoxBackUserManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxBackUserManagement.TabIndex = 15
+        Me.PictureBoxBackUserManagement.TabStop = False
         '
         'TableLayoutNavUserManagement
         '
@@ -519,6 +804,28 @@ Partial Class MainFrame
         Me.ColumnDateCreatedUserManagement.HeaderText = "Date Created"
         Me.ColumnDateCreatedUserManagement.Name = "ColumnDateCreatedUserManagement"
         '
+        'LabelLoadingUserManagement
+        '
+        Me.LabelLoadingUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
+        Me.LabelLoadingUserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingUserManagement.Location = New System.Drawing.Point(495, 17)
+        Me.LabelLoadingUserManagement.Name = "LabelLoadingUserManagement"
+        Me.LabelLoadingUserManagement.Size = New System.Drawing.Size(188, 42)
+        Me.LabelLoadingUserManagement.TabIndex = 11
+        Me.LabelLoadingUserManagement.Text = "Loading..."
+        Me.LabelLoadingUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingUserManagement.Visible = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.user
+        Me.PictureBox2.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(130, 89)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 9
+        Me.PictureBox2.TabStop = False
+        '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -555,6 +862,56 @@ Partial Class MainFrame
         Me.FlowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(252, 67)
         Me.FlowLayoutPanel2.TabIndex = 16
+        '
+        'LinkLabelAddPatientManagement
+        '
+        Me.LinkLabelAddPatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LinkLabelAddPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
+        Me.LinkLabelAddPatientManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelAddPatientManagement.Location = New System.Drawing.Point(3, 0)
+        Me.LinkLabelAddPatientManagement.Name = "LinkLabelAddPatientManagement"
+        Me.LinkLabelAddPatientManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelAddPatientManagement.TabIndex = 0
+        Me.LinkLabelAddPatientManagement.TabStop = True
+        Me.LinkLabelAddPatientManagement.Text = "Add"
+        Me.LinkLabelAddPatientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelEditPatientManagement
+        '
+        Me.LinkLabelEditPatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LinkLabelEditPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
+        Me.LinkLabelEditPatientManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelEditPatientManagement.Location = New System.Drawing.Point(65, 0)
+        Me.LinkLabelEditPatientManagement.Name = "LinkLabelEditPatientManagement"
+        Me.LinkLabelEditPatientManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelEditPatientManagement.TabIndex = 1
+        Me.LinkLabelEditPatientManagement.TabStop = True
+        Me.LinkLabelEditPatientManagement.Text = "Edit"
+        Me.LinkLabelEditPatientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelDeletePatientManagement
+        '
+        Me.LinkLabelDeletePatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LinkLabelDeletePatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
+        Me.LinkLabelDeletePatientManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelDeletePatientManagement.Location = New System.Drawing.Point(127, 0)
+        Me.LinkLabelDeletePatientManagement.Name = "LinkLabelDeletePatientManagement"
+        Me.LinkLabelDeletePatientManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelDeletePatientManagement.TabIndex = 2
+        Me.LinkLabelDeletePatientManagement.TabStop = True
+        Me.LinkLabelDeletePatientManagement.Text = "Delete"
+        Me.LinkLabelDeletePatientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'PictureBoxBackPatientManagement
+        '
+        Me.PictureBoxBackPatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxBackPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
+        Me.PictureBoxBackPatientManagement.Location = New System.Drawing.Point(21, 111)
+        Me.PictureBoxBackPatientManagement.Name = "PictureBoxBackPatientManagement"
+        Me.PictureBoxBackPatientManagement.Size = New System.Drawing.Size(45, 45)
+        Me.PictureBoxBackPatientManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxBackPatientManagement.TabIndex = 15
+        Me.PictureBoxBackPatientManagement.TabStop = False
         '
         'TableLayoutNavPatientManagement
         '
@@ -670,6 +1027,28 @@ Partial Class MainFrame
         Me.ColumnNoIDCardPatientManagement.HeaderText = "ID Card"
         Me.ColumnNoIDCardPatientManagement.Name = "ColumnNoIDCardPatientManagement"
         '
+        'LabelLoadingPatientManagement
+        '
+        Me.LabelLoadingPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
+        Me.LabelLoadingPatientManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingPatientManagement.Location = New System.Drawing.Point(495, 17)
+        Me.LabelLoadingPatientManagement.Name = "LabelLoadingPatientManagement"
+        Me.LabelLoadingPatientManagement.Size = New System.Drawing.Size(188, 42)
+        Me.LabelLoadingPatientManagement.TabIndex = 11
+        Me.LabelLoadingPatientManagement.Text = "Loading..."
+        Me.LabelLoadingPatientManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingPatientManagement.Visible = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.patient
+        Me.PictureBox4.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(130, 89)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox4.TabIndex = 9
+        Me.PictureBox4.TabStop = False
+        '
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -706,6 +1085,53 @@ Partial Class MainFrame
         Me.FlowLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(252, 67)
         Me.FlowLayoutPanel3.TabIndex = 16
+        '
+        'LinkLabelAddProductManagement
+        '
+        Me.LinkLabelAddProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
+        Me.LinkLabelAddProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelAddProductManagement.Location = New System.Drawing.Point(3, 0)
+        Me.LinkLabelAddProductManagement.Name = "LinkLabelAddProductManagement"
+        Me.LinkLabelAddProductManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelAddProductManagement.TabIndex = 0
+        Me.LinkLabelAddProductManagement.TabStop = True
+        Me.LinkLabelAddProductManagement.Text = "Add"
+        Me.LinkLabelAddProductManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelEditProductManagement
+        '
+        Me.LinkLabelEditProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
+        Me.LinkLabelEditProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelEditProductManagement.Location = New System.Drawing.Point(65, 0)
+        Me.LinkLabelEditProductManagement.Name = "LinkLabelEditProductManagement"
+        Me.LinkLabelEditProductManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelEditProductManagement.TabIndex = 1
+        Me.LinkLabelEditProductManagement.TabStop = True
+        Me.LinkLabelEditProductManagement.Text = "Edit"
+        Me.LinkLabelEditProductManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelDeleteProductManagement
+        '
+        Me.LinkLabelDeleteProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
+        Me.LinkLabelDeleteProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelDeleteProductManagement.Location = New System.Drawing.Point(127, 0)
+        Me.LinkLabelDeleteProductManagement.Name = "LinkLabelDeleteProductManagement"
+        Me.LinkLabelDeleteProductManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelDeleteProductManagement.TabIndex = 2
+        Me.LinkLabelDeleteProductManagement.TabStop = True
+        Me.LinkLabelDeleteProductManagement.Text = "Delete"
+        Me.LinkLabelDeleteProductManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'PictureBoxBackProductManagement
+        '
+        Me.PictureBoxBackProductManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxBackProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
+        Me.PictureBoxBackProductManagement.Location = New System.Drawing.Point(21, 111)
+        Me.PictureBoxBackProductManagement.Name = "PictureBoxBackProductManagement"
+        Me.PictureBoxBackProductManagement.Size = New System.Drawing.Size(45, 45)
+        Me.PictureBoxBackProductManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxBackProductManagement.TabIndex = 15
+        Me.PictureBoxBackProductManagement.TabStop = False
         '
         'TableLayoutNavProductManagement
         '
@@ -783,6 +1209,28 @@ Partial Class MainFrame
         Me.ColumnStatusProductManagement.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ColumnStatusProductManagement.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
+        'LabelLoadingProductManagement
+        '
+        Me.LabelLoadingProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
+        Me.LabelLoadingProductManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingProductManagement.Location = New System.Drawing.Point(495, 17)
+        Me.LabelLoadingProductManagement.Name = "LabelLoadingProductManagement"
+        Me.LabelLoadingProductManagement.Size = New System.Drawing.Size(188, 42)
+        Me.LabelLoadingProductManagement.TabIndex = 11
+        Me.LabelLoadingProductManagement.Text = "Loading..."
+        Me.LabelLoadingProductManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingProductManagement.Visible = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.shopping
+        Me.PictureBox5.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(130, 89)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox5.TabIndex = 9
+        Me.PictureBox5.TabStop = False
+        '
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -819,6 +1267,53 @@ Partial Class MainFrame
         Me.FlowLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.FlowLayoutPanel4.Size = New System.Drawing.Size(252, 67)
         Me.FlowLayoutPanel4.TabIndex = 16
+        '
+        'LinkLabelAddOrderManagement
+        '
+        Me.LinkLabelAddOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
+        Me.LinkLabelAddOrderManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelAddOrderManagement.Location = New System.Drawing.Point(3, 0)
+        Me.LinkLabelAddOrderManagement.Name = "LinkLabelAddOrderManagement"
+        Me.LinkLabelAddOrderManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelAddOrderManagement.TabIndex = 0
+        Me.LinkLabelAddOrderManagement.TabStop = True
+        Me.LinkLabelAddOrderManagement.Text = "Add"
+        Me.LinkLabelAddOrderManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelEditOrderManagement
+        '
+        Me.LinkLabelEditOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
+        Me.LinkLabelEditOrderManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelEditOrderManagement.Location = New System.Drawing.Point(65, 0)
+        Me.LinkLabelEditOrderManagement.Name = "LinkLabelEditOrderManagement"
+        Me.LinkLabelEditOrderManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelEditOrderManagement.TabIndex = 1
+        Me.LinkLabelEditOrderManagement.TabStop = True
+        Me.LinkLabelEditOrderManagement.Text = "Edit"
+        Me.LinkLabelEditOrderManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelDeleteOrderManagement
+        '
+        Me.LinkLabelDeleteOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
+        Me.LinkLabelDeleteOrderManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelDeleteOrderManagement.Location = New System.Drawing.Point(127, 0)
+        Me.LinkLabelDeleteOrderManagement.Name = "LinkLabelDeleteOrderManagement"
+        Me.LinkLabelDeleteOrderManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelDeleteOrderManagement.TabIndex = 2
+        Me.LinkLabelDeleteOrderManagement.TabStop = True
+        Me.LinkLabelDeleteOrderManagement.Text = "Delete"
+        Me.LinkLabelDeleteOrderManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'PictureBoxBackOrderManagement
+        '
+        Me.PictureBoxBackOrderManagement.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBoxBackOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
+        Me.PictureBoxBackOrderManagement.Location = New System.Drawing.Point(21, 111)
+        Me.PictureBoxBackOrderManagement.Name = "PictureBoxBackOrderManagement"
+        Me.PictureBoxBackOrderManagement.Size = New System.Drawing.Size(45, 45)
+        Me.PictureBoxBackOrderManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxBackOrderManagement.TabIndex = 15
+        Me.PictureBoxBackOrderManagement.TabStop = False
         '
         'TableLayoutNavOrderManagement
         '
@@ -893,6 +1388,28 @@ Partial Class MainFrame
         Me.ColumnDateCreatedOrderManagement.HeaderText = "Date Created"
         Me.ColumnDateCreatedOrderManagement.Name = "ColumnDateCreatedOrderManagement"
         '
+        'LabelLoadingOrderManagement
+        '
+        Me.LabelLoadingOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
+        Me.LabelLoadingOrderManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingOrderManagement.Location = New System.Drawing.Point(495, 17)
+        Me.LabelLoadingOrderManagement.Name = "LabelLoadingOrderManagement"
+        Me.LabelLoadingOrderManagement.Size = New System.Drawing.Size(188, 42)
+        Me.LabelLoadingOrderManagement.TabIndex = 11
+        Me.LabelLoadingOrderManagement.Text = "Loading..."
+        Me.LabelLoadingOrderManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingOrderManagement.Visible = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.checkbook
+        Me.PictureBox6.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(130, 89)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox6.TabIndex = 9
+        Me.PictureBox6.TabStop = False
+        '
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -929,6 +1446,52 @@ Partial Class MainFrame
         Me.FlowLayoutPanel5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.FlowLayoutPanel5.Size = New System.Drawing.Size(252, 67)
         Me.FlowLayoutPanel5.TabIndex = 16
+        '
+        'LinkLabelAddScheduleManagement
+        '
+        Me.LinkLabelAddScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
+        Me.LinkLabelAddScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelAddScheduleManagement.Location = New System.Drawing.Point(3, 0)
+        Me.LinkLabelAddScheduleManagement.Name = "LinkLabelAddScheduleManagement"
+        Me.LinkLabelAddScheduleManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelAddScheduleManagement.TabIndex = 0
+        Me.LinkLabelAddScheduleManagement.TabStop = True
+        Me.LinkLabelAddScheduleManagement.Text = "Add"
+        Me.LinkLabelAddScheduleManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelEditScheduleManagement
+        '
+        Me.LinkLabelEditScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
+        Me.LinkLabelEditScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelEditScheduleManagement.Location = New System.Drawing.Point(65, 0)
+        Me.LinkLabelEditScheduleManagement.Name = "LinkLabelEditScheduleManagement"
+        Me.LinkLabelEditScheduleManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelEditScheduleManagement.TabIndex = 1
+        Me.LinkLabelEditScheduleManagement.TabStop = True
+        Me.LinkLabelEditScheduleManagement.Text = "Edit"
+        Me.LinkLabelEditScheduleManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'LinkLabelDeleteScheduleManagement
+        '
+        Me.LinkLabelDeleteScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
+        Me.LinkLabelDeleteScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LinkLabelDeleteScheduleManagement.Location = New System.Drawing.Point(127, 0)
+        Me.LinkLabelDeleteScheduleManagement.Name = "LinkLabelDeleteScheduleManagement"
+        Me.LinkLabelDeleteScheduleManagement.Size = New System.Drawing.Size(56, 53)
+        Me.LinkLabelDeleteScheduleManagement.TabIndex = 2
+        Me.LinkLabelDeleteScheduleManagement.TabStop = True
+        Me.LinkLabelDeleteScheduleManagement.Text = "Delete"
+        Me.LinkLabelDeleteScheduleManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'PictureBoxBackScheduleManagement
+        '
+        Me.PictureBoxBackScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
+        Me.PictureBoxBackScheduleManagement.Location = New System.Drawing.Point(21, 111)
+        Me.PictureBoxBackScheduleManagement.Name = "PictureBoxBackScheduleManagement"
+        Me.PictureBoxBackScheduleManagement.Size = New System.Drawing.Size(45, 45)
+        Me.PictureBoxBackScheduleManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxBackScheduleManagement.TabIndex = 15
+        Me.PictureBoxBackScheduleManagement.TabStop = False
         '
         'TableLayoutNavScheduleManagement
         '
@@ -1000,6 +1563,28 @@ Partial Class MainFrame
         Me.ColumnDateCreatedScheduleManagement.HeaderText = "Date Created"
         Me.ColumnDateCreatedScheduleManagement.Name = "ColumnDateCreatedScheduleManagement"
         '
+        'LabelLoadingScheduleManagement
+        '
+        Me.LabelLoadingScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
+        Me.LabelLoadingScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingScheduleManagement.Location = New System.Drawing.Point(495, 17)
+        Me.LabelLoadingScheduleManagement.Name = "LabelLoadingScheduleManagement"
+        Me.LabelLoadingScheduleManagement.Size = New System.Drawing.Size(188, 42)
+        Me.LabelLoadingScheduleManagement.TabIndex = 11
+        Me.LabelLoadingScheduleManagement.Text = "Loading..."
+        Me.LabelLoadingScheduleManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelLoadingScheduleManagement.Visible = False
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._date
+        Me.PictureBox7.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(130, 89)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox7.TabIndex = 9
+        Me.PictureBox7.TabStop = False
+        '
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1036,112 +1621,6 @@ Partial Class MainFrame
         Me.FlowLayoutPanel6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.FlowLayoutPanel6.Size = New System.Drawing.Size(252, 67)
         Me.FlowLayoutPanel6.TabIndex = 16
-        '
-        'TableLayoutNavVisitManagement
-        '
-        Me.TableLayoutNavVisitManagement.ColumnCount = 1
-        Me.TableLayoutNavVisitManagement.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutNavVisitManagement.Location = New System.Drawing.Point(304, 132)
-        Me.TableLayoutNavVisitManagement.Name = "TableLayoutNavVisitManagement"
-        Me.TableLayoutNavVisitManagement.RowCount = 1
-        Me.TableLayoutNavVisitManagement.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutNavVisitManagement.Size = New System.Drawing.Size(432, 27)
-        Me.TableLayoutNavVisitManagement.TabIndex = 14
-        '
-        'DataGridViewVisitManagement
-        '
-        Me.DataGridViewVisitManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewVisitManagement.Location = New System.Drawing.Point(0, 166)
-        Me.DataGridViewVisitManagement.Name = "DataGridViewVisitManagement"
-        Me.DataGridViewVisitManagement.Size = New System.Drawing.Size(748, 256)
-        Me.DataGridViewVisitManagement.TabIndex = 12
-        '
-        'Label11
-        '
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(232, 27)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(284, 23)
-        Me.Label11.TabIndex = 8
-        Me.Label11.Text = "Visit Management"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.logo_rth_app
-        Me.PictureBox1.Location = New System.Drawing.Point(101, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(229, 197)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'LinkLabelAddScheduleManagement
-        '
-        Me.LinkLabelAddScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
-        Me.LinkLabelAddScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelAddScheduleManagement.Location = New System.Drawing.Point(3, 0)
-        Me.LinkLabelAddScheduleManagement.Name = "LinkLabelAddScheduleManagement"
-        Me.LinkLabelAddScheduleManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelAddScheduleManagement.TabIndex = 0
-        Me.LinkLabelAddScheduleManagement.TabStop = True
-        Me.LinkLabelAddScheduleManagement.Text = "Add"
-        Me.LinkLabelAddScheduleManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelEditScheduleManagement
-        '
-        Me.LinkLabelEditScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
-        Me.LinkLabelEditScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelEditScheduleManagement.Location = New System.Drawing.Point(65, 0)
-        Me.LinkLabelEditScheduleManagement.Name = "LinkLabelEditScheduleManagement"
-        Me.LinkLabelEditScheduleManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelEditScheduleManagement.TabIndex = 1
-        Me.LinkLabelEditScheduleManagement.TabStop = True
-        Me.LinkLabelEditScheduleManagement.Text = "Edit"
-        Me.LinkLabelEditScheduleManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelDeleteScheduleManagement
-        '
-        Me.LinkLabelDeleteScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
-        Me.LinkLabelDeleteScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelDeleteScheduleManagement.Location = New System.Drawing.Point(127, 0)
-        Me.LinkLabelDeleteScheduleManagement.Name = "LinkLabelDeleteScheduleManagement"
-        Me.LinkLabelDeleteScheduleManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelDeleteScheduleManagement.TabIndex = 2
-        Me.LinkLabelDeleteScheduleManagement.TabStop = True
-        Me.LinkLabelDeleteScheduleManagement.Text = "Delete"
-        Me.LinkLabelDeleteScheduleManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PictureBoxBackScheduleManagement
-        '
-        Me.PictureBoxBackScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
-        Me.PictureBoxBackScheduleManagement.Location = New System.Drawing.Point(21, 111)
-        Me.PictureBoxBackScheduleManagement.Name = "PictureBoxBackScheduleManagement"
-        Me.PictureBoxBackScheduleManagement.Size = New System.Drawing.Size(45, 45)
-        Me.PictureBoxBackScheduleManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxBackScheduleManagement.TabIndex = 15
-        Me.PictureBoxBackScheduleManagement.TabStop = False
-        '
-        'LabelLoadingScheduleManagement
-        '
-        Me.LabelLoadingScheduleManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
-        Me.LabelLoadingScheduleManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingScheduleManagement.Location = New System.Drawing.Point(495, 17)
-        Me.LabelLoadingScheduleManagement.Name = "LabelLoadingScheduleManagement"
-        Me.LabelLoadingScheduleManagement.Size = New System.Drawing.Size(188, 42)
-        Me.LabelLoadingScheduleManagement.TabIndex = 11
-        Me.LabelLoadingScheduleManagement.Text = "Loading..."
-        Me.LabelLoadingScheduleManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingScheduleManagement.Visible = False
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._date
-        Me.PictureBox7.Location = New System.Drawing.Point(48, 17)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(130, 89)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox7.TabIndex = 9
-        Me.PictureBox7.TabStop = False
         '
         'LinkLabelAddVisitManagement
         '
@@ -1189,6 +1668,28 @@ Partial Class MainFrame
         Me.PictureBoxBackVisitManagement.TabIndex = 15
         Me.PictureBoxBackVisitManagement.TabStop = False
         '
+        'TableLayoutNavVisitManagement
+        '
+        Me.TableLayoutNavVisitManagement.ColumnCount = 1
+        Me.TableLayoutNavVisitManagement.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutNavVisitManagement.Location = New System.Drawing.Point(304, 132)
+        Me.TableLayoutNavVisitManagement.Name = "TableLayoutNavVisitManagement"
+        Me.TableLayoutNavVisitManagement.RowCount = 1
+        Me.TableLayoutNavVisitManagement.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutNavVisitManagement.Size = New System.Drawing.Size(432, 27)
+        Me.TableLayoutNavVisitManagement.TabIndex = 14
+        '
+        'DataGridViewVisitManagement
+        '
+        Me.DataGridViewVisitManagement.AllowUserToAddRows = False
+        Me.DataGridViewVisitManagement.AllowUserToDeleteRows = False
+        Me.DataGridViewVisitManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewVisitManagement.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnCheckboxVisitManagement, Me.ColumnIdVisitManagement, Me.ColumnPatientIdVisitManagement, Me.ColumnDateVisitedVisitManagement, Me.ColumnDateFutureVisitManagement, Me.ColumnTreatmentVisitManagement, Me.ColumnWeightVisitManagement, Me.ColumnBloodPressureVisitManagement, Me.ColumnDescriptionVisitManagement})
+        Me.DataGridViewVisitManagement.Location = New System.Drawing.Point(0, 166)
+        Me.DataGridViewVisitManagement.Name = "DataGridViewVisitManagement"
+        Me.DataGridViewVisitManagement.Size = New System.Drawing.Size(748, 256)
+        Me.DataGridViewVisitManagement.TabIndex = 12
+        '
         'LabelLoadingVisitManagement
         '
         Me.LabelLoadingVisitManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
@@ -1211,516 +1712,75 @@ Partial Class MainFrame
         Me.PictureBox8.TabIndex = 9
         Me.PictureBox8.TabStop = False
         '
-        'LinkLabelAddOrderManagement
-        '
-        Me.LinkLabelAddOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
-        Me.LinkLabelAddOrderManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelAddOrderManagement.Location = New System.Drawing.Point(3, 0)
-        Me.LinkLabelAddOrderManagement.Name = "LinkLabelAddOrderManagement"
-        Me.LinkLabelAddOrderManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelAddOrderManagement.TabIndex = 0
-        Me.LinkLabelAddOrderManagement.TabStop = True
-        Me.LinkLabelAddOrderManagement.Text = "Add"
-        Me.LinkLabelAddOrderManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelEditOrderManagement
-        '
-        Me.LinkLabelEditOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
-        Me.LinkLabelEditOrderManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelEditOrderManagement.Location = New System.Drawing.Point(65, 0)
-        Me.LinkLabelEditOrderManagement.Name = "LinkLabelEditOrderManagement"
-        Me.LinkLabelEditOrderManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelEditOrderManagement.TabIndex = 1
-        Me.LinkLabelEditOrderManagement.TabStop = True
-        Me.LinkLabelEditOrderManagement.Text = "Edit"
-        Me.LinkLabelEditOrderManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelDeleteOrderManagement
-        '
-        Me.LinkLabelDeleteOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
-        Me.LinkLabelDeleteOrderManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelDeleteOrderManagement.Location = New System.Drawing.Point(127, 0)
-        Me.LinkLabelDeleteOrderManagement.Name = "LinkLabelDeleteOrderManagement"
-        Me.LinkLabelDeleteOrderManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelDeleteOrderManagement.TabIndex = 2
-        Me.LinkLabelDeleteOrderManagement.TabStop = True
-        Me.LinkLabelDeleteOrderManagement.Text = "Delete"
-        Me.LinkLabelDeleteOrderManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PictureBoxBackOrderManagement
-        '
-        Me.PictureBoxBackOrderManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxBackOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
-        Me.PictureBoxBackOrderManagement.Location = New System.Drawing.Point(21, 111)
-        Me.PictureBoxBackOrderManagement.Name = "PictureBoxBackOrderManagement"
-        Me.PictureBoxBackOrderManagement.Size = New System.Drawing.Size(45, 45)
-        Me.PictureBoxBackOrderManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxBackOrderManagement.TabIndex = 15
-        Me.PictureBoxBackOrderManagement.TabStop = False
-        '
-        'LabelLoadingOrderManagement
-        '
-        Me.LabelLoadingOrderManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
-        Me.LabelLoadingOrderManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingOrderManagement.Location = New System.Drawing.Point(495, 17)
-        Me.LabelLoadingOrderManagement.Name = "LabelLoadingOrderManagement"
-        Me.LabelLoadingOrderManagement.Size = New System.Drawing.Size(188, 42)
-        Me.LabelLoadingOrderManagement.TabIndex = 11
-        Me.LabelLoadingOrderManagement.Text = "Loading..."
-        Me.LabelLoadingOrderManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingOrderManagement.Visible = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.checkbook
-        Me.PictureBox6.Location = New System.Drawing.Point(48, 17)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(130, 89)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox6.TabIndex = 9
-        Me.PictureBox6.TabStop = False
-        '
-        'LinkLabelAddProductManagement
-        '
-        Me.LinkLabelAddProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
-        Me.LinkLabelAddProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelAddProductManagement.Location = New System.Drawing.Point(3, 0)
-        Me.LinkLabelAddProductManagement.Name = "LinkLabelAddProductManagement"
-        Me.LinkLabelAddProductManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelAddProductManagement.TabIndex = 0
-        Me.LinkLabelAddProductManagement.TabStop = True
-        Me.LinkLabelAddProductManagement.Text = "Add"
-        Me.LinkLabelAddProductManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelEditProductManagement
-        '
-        Me.LinkLabelEditProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
-        Me.LinkLabelEditProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelEditProductManagement.Location = New System.Drawing.Point(65, 0)
-        Me.LinkLabelEditProductManagement.Name = "LinkLabelEditProductManagement"
-        Me.LinkLabelEditProductManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelEditProductManagement.TabIndex = 1
-        Me.LinkLabelEditProductManagement.TabStop = True
-        Me.LinkLabelEditProductManagement.Text = "Edit"
-        Me.LinkLabelEditProductManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelDeleteProductManagement
-        '
-        Me.LinkLabelDeleteProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
-        Me.LinkLabelDeleteProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelDeleteProductManagement.Location = New System.Drawing.Point(127, 0)
-        Me.LinkLabelDeleteProductManagement.Name = "LinkLabelDeleteProductManagement"
-        Me.LinkLabelDeleteProductManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelDeleteProductManagement.TabIndex = 2
-        Me.LinkLabelDeleteProductManagement.TabStop = True
-        Me.LinkLabelDeleteProductManagement.Text = "Delete"
-        Me.LinkLabelDeleteProductManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PictureBoxBackProductManagement
-        '
-        Me.PictureBoxBackProductManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxBackProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
-        Me.PictureBoxBackProductManagement.Location = New System.Drawing.Point(21, 111)
-        Me.PictureBoxBackProductManagement.Name = "PictureBoxBackProductManagement"
-        Me.PictureBoxBackProductManagement.Size = New System.Drawing.Size(45, 45)
-        Me.PictureBoxBackProductManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxBackProductManagement.TabIndex = 15
-        Me.PictureBoxBackProductManagement.TabStop = False
-        '
-        'LabelLoadingProductManagement
-        '
-        Me.LabelLoadingProductManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
-        Me.LabelLoadingProductManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingProductManagement.Location = New System.Drawing.Point(495, 17)
-        Me.LabelLoadingProductManagement.Name = "LabelLoadingProductManagement"
-        Me.LabelLoadingProductManagement.Size = New System.Drawing.Size(188, 42)
-        Me.LabelLoadingProductManagement.TabIndex = 11
-        Me.LabelLoadingProductManagement.Text = "Loading..."
-        Me.LabelLoadingProductManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingProductManagement.Visible = False
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.shopping
-        Me.PictureBox5.Location = New System.Drawing.Point(48, 17)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(130, 89)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox5.TabIndex = 9
-        Me.PictureBox5.TabStop = False
-        '
-        'ButtonVisitManagementMain
-        '
-        Me.ButtonVisitManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.datevisit
-        Me.ButtonVisitManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ButtonVisitManagementMain.Location = New System.Drawing.Point(318, 182)
-        Me.ButtonVisitManagementMain.Name = "ButtonVisitManagementMain"
-        Me.ButtonVisitManagementMain.Size = New System.Drawing.Size(117, 95)
-        Me.ButtonVisitManagementMain.TabIndex = 6
-        Me.ButtonVisitManagementMain.Text = "Visit Management"
-        Me.ButtonVisitManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ButtonVisitManagementMain.UseVisualStyleBackColor = True
-        '
-        'ButtonScheduleManagementMain
-        '
-        Me.ButtonScheduleManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._date
-        Me.ButtonScheduleManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ButtonScheduleManagementMain.Location = New System.Drawing.Point(146, 182)
-        Me.ButtonScheduleManagementMain.Name = "ButtonScheduleManagementMain"
-        Me.ButtonScheduleManagementMain.Size = New System.Drawing.Size(117, 95)
-        Me.ButtonScheduleManagementMain.TabIndex = 5
-        Me.ButtonScheduleManagementMain.Text = "Schedule Management"
-        Me.ButtonScheduleManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ButtonScheduleManagementMain.UseVisualStyleBackColor = True
-        '
-        'ButtonOrderManagementMain
-        '
-        Me.ButtonOrderManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.checkbook
-        Me.ButtonOrderManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ButtonOrderManagementMain.Location = New System.Drawing.Point(559, 65)
-        Me.ButtonOrderManagementMain.Name = "ButtonOrderManagementMain"
-        Me.ButtonOrderManagementMain.Size = New System.Drawing.Size(117, 95)
-        Me.ButtonOrderManagementMain.TabIndex = 3
-        Me.ButtonOrderManagementMain.Text = "Order Management"
-        Me.ButtonOrderManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ButtonOrderManagementMain.UseVisualStyleBackColor = True
-        '
-        'ButtonProductManagementMain
-        '
-        Me.ButtonProductManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.shopping
-        Me.ButtonProductManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ButtonProductManagementMain.Location = New System.Drawing.Point(403, 65)
-        Me.ButtonProductManagementMain.Name = "ButtonProductManagementMain"
-        Me.ButtonProductManagementMain.Size = New System.Drawing.Size(117, 95)
-        Me.ButtonProductManagementMain.TabIndex = 2
-        Me.ButtonProductManagementMain.Text = "Product Management"
-        Me.ButtonProductManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ButtonProductManagementMain.UseVisualStyleBackColor = True
-        '
-        'ButtonPatientManagementMain
-        '
-        Me.ButtonPatientManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.patient
-        Me.ButtonPatientManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ButtonPatientManagementMain.Location = New System.Drawing.Point(236, 65)
-        Me.ButtonPatientManagementMain.Name = "ButtonPatientManagementMain"
-        Me.ButtonPatientManagementMain.Size = New System.Drawing.Size(117, 95)
-        Me.ButtonPatientManagementMain.TabIndex = 1
-        Me.ButtonPatientManagementMain.Text = "Patient Management"
-        Me.ButtonPatientManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ButtonPatientManagementMain.UseVisualStyleBackColor = True
-        '
-        'ButtonUserManagementMain
-        '
-        Me.ButtonUserManagementMain.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.user
-        Me.ButtonUserManagementMain.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ButtonUserManagementMain.Location = New System.Drawing.Point(61, 65)
-        Me.ButtonUserManagementMain.Name = "ButtonUserManagementMain"
-        Me.ButtonUserManagementMain.Size = New System.Drawing.Size(117, 95)
-        Me.ButtonUserManagementMain.TabIndex = 0
-        Me.ButtonUserManagementMain.Text = "User Management"
-        Me.ButtonUserManagementMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ButtonUserManagementMain.UseVisualStyleBackColor = True
-        '
-        'LinkLabelAddPatientManagement
-        '
-        Me.LinkLabelAddPatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabelAddPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
-        Me.LinkLabelAddPatientManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelAddPatientManagement.Location = New System.Drawing.Point(3, 0)
-        Me.LinkLabelAddPatientManagement.Name = "LinkLabelAddPatientManagement"
-        Me.LinkLabelAddPatientManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelAddPatientManagement.TabIndex = 0
-        Me.LinkLabelAddPatientManagement.TabStop = True
-        Me.LinkLabelAddPatientManagement.Text = "Add"
-        Me.LinkLabelAddPatientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelEditPatientManagement
-        '
-        Me.LinkLabelEditPatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabelEditPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
-        Me.LinkLabelEditPatientManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelEditPatientManagement.Location = New System.Drawing.Point(65, 0)
-        Me.LinkLabelEditPatientManagement.Name = "LinkLabelEditPatientManagement"
-        Me.LinkLabelEditPatientManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelEditPatientManagement.TabIndex = 1
-        Me.LinkLabelEditPatientManagement.TabStop = True
-        Me.LinkLabelEditPatientManagement.Text = "Edit"
-        Me.LinkLabelEditPatientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelDeletePatientManagement
-        '
-        Me.LinkLabelDeletePatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabelDeletePatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
-        Me.LinkLabelDeletePatientManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelDeletePatientManagement.Location = New System.Drawing.Point(127, 0)
-        Me.LinkLabelDeletePatientManagement.Name = "LinkLabelDeletePatientManagement"
-        Me.LinkLabelDeletePatientManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelDeletePatientManagement.TabIndex = 2
-        Me.LinkLabelDeletePatientManagement.TabStop = True
-        Me.LinkLabelDeletePatientManagement.Text = "Delete"
-        Me.LinkLabelDeletePatientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PictureBoxBackPatientManagement
-        '
-        Me.PictureBoxBackPatientManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxBackPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
-        Me.PictureBoxBackPatientManagement.Location = New System.Drawing.Point(21, 111)
-        Me.PictureBoxBackPatientManagement.Name = "PictureBoxBackPatientManagement"
-        Me.PictureBoxBackPatientManagement.Size = New System.Drawing.Size(45, 45)
-        Me.PictureBoxBackPatientManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxBackPatientManagement.TabIndex = 15
-        Me.PictureBoxBackPatientManagement.TabStop = False
-        '
-        'LabelLoadingPatientManagement
-        '
-        Me.LabelLoadingPatientManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
-        Me.LabelLoadingPatientManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingPatientManagement.Location = New System.Drawing.Point(495, 17)
-        Me.LabelLoadingPatientManagement.Name = "LabelLoadingPatientManagement"
-        Me.LabelLoadingPatientManagement.Size = New System.Drawing.Size(188, 42)
-        Me.LabelLoadingPatientManagement.TabIndex = 11
-        Me.LabelLoadingPatientManagement.Text = "Loading..."
-        Me.LabelLoadingPatientManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingPatientManagement.Visible = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.patient
-        Me.PictureBox4.Location = New System.Drawing.Point(48, 17)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(130, 89)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox4.TabIndex = 9
-        Me.PictureBox4.TabStop = False
-        '
-        'LinkLabelAddUserManagement
-        '
-        Me.LinkLabelAddUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabelAddUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.add
-        Me.LinkLabelAddUserManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelAddUserManagement.Location = New System.Drawing.Point(3, 0)
-        Me.LinkLabelAddUserManagement.Name = "LinkLabelAddUserManagement"
-        Me.LinkLabelAddUserManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelAddUserManagement.TabIndex = 0
-        Me.LinkLabelAddUserManagement.TabStop = True
-        Me.LinkLabelAddUserManagement.Text = "Add"
-        Me.LinkLabelAddUserManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelEditUserManagement
-        '
-        Me.LinkLabelEditUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabelEditUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.edit
-        Me.LinkLabelEditUserManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelEditUserManagement.Location = New System.Drawing.Point(65, 0)
-        Me.LinkLabelEditUserManagement.Name = "LinkLabelEditUserManagement"
-        Me.LinkLabelEditUserManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelEditUserManagement.TabIndex = 1
-        Me.LinkLabelEditUserManagement.TabStop = True
-        Me.LinkLabelEditUserManagement.Text = "Edit"
-        Me.LinkLabelEditUserManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LinkLabelDeleteUserManagement
-        '
-        Me.LinkLabelDeleteUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabelDeleteUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.delete
-        Me.LinkLabelDeleteUserManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LinkLabelDeleteUserManagement.Location = New System.Drawing.Point(127, 0)
-        Me.LinkLabelDeleteUserManagement.Name = "LinkLabelDeleteUserManagement"
-        Me.LinkLabelDeleteUserManagement.Size = New System.Drawing.Size(56, 53)
-        Me.LinkLabelDeleteUserManagement.TabIndex = 2
-        Me.LinkLabelDeleteUserManagement.TabStop = True
-        Me.LinkLabelDeleteUserManagement.Text = "Delete"
-        Me.LinkLabelDeleteUserManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PictureBoxBackUserManagement
-        '
-        Me.PictureBoxBackUserManagement.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBoxBackUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.back
-        Me.PictureBoxBackUserManagement.Location = New System.Drawing.Point(21, 111)
-        Me.PictureBoxBackUserManagement.Name = "PictureBoxBackUserManagement"
-        Me.PictureBoxBackUserManagement.Size = New System.Drawing.Size(45, 45)
-        Me.PictureBoxBackUserManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxBackUserManagement.TabIndex = 15
-        Me.PictureBoxBackUserManagement.TabStop = False
-        '
-        'LabelLoadingUserManagement
-        '
-        Me.LabelLoadingUserManagement.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
-        Me.LabelLoadingUserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingUserManagement.Location = New System.Drawing.Point(495, 17)
-        Me.LabelLoadingUserManagement.Name = "LabelLoadingUserManagement"
-        Me.LabelLoadingUserManagement.Size = New System.Drawing.Size(188, 42)
-        Me.LabelLoadingUserManagement.TabIndex = 11
-        Me.LabelLoadingUserManagement.Text = "Loading..."
-        Me.LabelLoadingUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingUserManagement.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.user
-        Me.PictureBox2.Location = New System.Drawing.Point(48, 17)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(130, 89)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox2.TabIndex = 9
-        Me.PictureBox2.TabStop = False
-        '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem})
-        Me.FileToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.note
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
-        Me.FileToolStripMenuItem.Text = "File"
-        '
-        'SearchToolStripMenuItem
-        '
-        Me.SearchToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.search
-        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.ShortcutKeyDisplayString = ""
-        Me.SearchToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SearchToolStripMenuItem.Text = "Search"
-        '
-        'LogoutToolStripMenuItem
-        '
-        Me.LogoutToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.logout
-        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.LogoutToolStripMenuItem.Text = "Logout"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._exit
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.LanguageToolStripMenuItem})
-        Me.SettingsToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.settings
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(74, 20)
-        Me.SettingsToolStripMenuItem.Text = "Settings"
-        '
-        'DatabaseToolStripMenuItem
-        '
-        Me.DatabaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModeToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ExportToolStripMenuItem})
-        Me.DatabaseToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.database
-        Me.DatabaseToolStripMenuItem.Name = "DatabaseToolStripMenuItem"
-        Me.DatabaseToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
-        Me.DatabaseToolStripMenuItem.Text = "Database"
-        '
-        'ModeToolStripMenuItem
-        '
-        Me.ModeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnlineToolStripMenuItem, Me.OfflineToolStripMenuItem})
-        Me.ModeToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.mode
-        Me.ModeToolStripMenuItem.Name = "ModeToolStripMenuItem"
-        Me.ModeToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
-        Me.ModeToolStripMenuItem.Text = "Mode"
-        '
-        'OnlineToolStripMenuItem
-        '
-        Me.OnlineToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.ok
-        Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
-        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
-        Me.OnlineToolStripMenuItem.Text = "Online"
-        '
-        'OfflineToolStripMenuItem
-        '
-        Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
-        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
-        Me.OfflineToolStripMenuItem.Text = "Offline"
-        '
-        'ImportToolStripMenuItem
-        '
-        Me.ImportToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.import
-        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
-        Me.ImportToolStripMenuItem.Text = "Import"
-        '
-        'ExportToolStripMenuItem
-        '
-        Me.ExportToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.export
-        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
-        Me.ExportToolStripMenuItem.Text = "Export"
-        '
-        'OptionsToolStripMenuItem
-        '
-        Me.OptionsToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources._option
-        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
-        Me.OptionsToolStripMenuItem.Text = "Options"
-        '
-        'LanguageToolStripMenuItem
-        '
-        Me.LanguageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BahasaIndonesiaToolStripMenuItem, Me.EnglishToolStripMenuItem})
-        Me.LanguageToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.chat
-        Me.LanguageToolStripMenuItem.Name = "LanguageToolStripMenuItem"
-        Me.LanguageToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
-        Me.LanguageToolStripMenuItem.Text = "Language"
-        '
-        'BahasaIndonesiaToolStripMenuItem
-        '
-        Me.BahasaIndonesiaToolStripMenuItem.Enabled = False
-        Me.BahasaIndonesiaToolStripMenuItem.Name = "BahasaIndonesiaToolStripMenuItem"
-        Me.BahasaIndonesiaToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
-        Me.BahasaIndonesiaToolStripMenuItem.Text = "Bahasa Indonesia"
-        '
-        'EnglishToolStripMenuItem
-        '
-        Me.EnglishToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.ok
-        Me.EnglishToolStripMenuItem.Name = "EnglishToolStripMenuItem"
-        Me.EnglishToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
-        Me.EnglishToolStripMenuItem.Text = "English"
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.ReportBugsToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.help
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.info
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
-        '
-        'ReportBugsToolStripMenuItem
-        '
-        Me.ReportBugsToolStripMenuItem.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.reportbugs
-        Me.ReportBugsToolStripMenuItem.Name = "ReportBugsToolStripMenuItem"
-        Me.ReportBugsToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
-        Me.ReportBugsToolStripMenuItem.Text = "Report Bugs"
+        'Label11
+        '
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(232, 27)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(284, 23)
+        Me.Label11.TabIndex = 8
+        Me.Label11.Text = "Visit Management"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ColumnCheckboxVisitManagement
+        '
+        Me.ColumnCheckboxVisitManagement.HeaderText = "[ x ]"
+        Me.ColumnCheckboxVisitManagement.Name = "ColumnCheckboxVisitManagement"
+        Me.ColumnCheckboxVisitManagement.Width = 35
+        '
+        'ColumnIdVisitManagement
+        '
+        Me.ColumnIdVisitManagement.HeaderText = "Id"
+        Me.ColumnIdVisitManagement.Name = "ColumnIdVisitManagement"
+        Me.ColumnIdVisitManagement.Width = 35
+        '
+        'ColumnPatientIdVisitManagement
+        '
+        Me.ColumnPatientIdVisitManagement.HeaderText = "Patient Id"
+        Me.ColumnPatientIdVisitManagement.Name = "ColumnPatientIdVisitManagement"
+        Me.ColumnPatientIdVisitManagement.Width = 35
+        '
+        'ColumnDateVisitedVisitManagement
+        '
+        Me.ColumnDateVisitedVisitManagement.HeaderText = "Date Visited"
+        Me.ColumnDateVisitedVisitManagement.Name = "ColumnDateVisitedVisitManagement"
+        '
+        'ColumnDateFutureVisitManagement
+        '
+        Me.ColumnDateFutureVisitManagement.HeaderText = "Date Future"
+        Me.ColumnDateFutureVisitManagement.Name = "ColumnDateFutureVisitManagement"
+        '
+        'ColumnTreatmentVisitManagement
+        '
+        Me.ColumnTreatmentVisitManagement.HeaderText = "Treatment"
+        Me.ColumnTreatmentVisitManagement.Name = "ColumnTreatmentVisitManagement"
+        '
+        'ColumnWeightVisitManagement
+        '
+        Me.ColumnWeightVisitManagement.HeaderText = "Weight"
+        Me.ColumnWeightVisitManagement.Name = "ColumnWeightVisitManagement"
+        '
+        'ColumnBloodPressureVisitManagement
+        '
+        Me.ColumnBloodPressureVisitManagement.HeaderText = "Blood Pressure"
+        Me.ColumnBloodPressureVisitManagement.Name = "ColumnBloodPressureVisitManagement"
+        '
+        'ColumnDescriptionVisitManagement
+        '
+        Me.ColumnDescriptionVisitManagement.HeaderText = "Description"
+        Me.ColumnDescriptionVisitManagement.Name = "ColumnDescriptionVisitManagement"
         '
         'MainFrame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(748, 471)
-        Me.Controls.Add(Me.PanelLogin)
-        Me.Controls.Add(Me.PanelScheduleManagement)
         Me.Controls.Add(Me.PanelVisitManagement)
+        Me.Controls.Add(Me.PanelHome)
+        Me.Controls.Add(Me.PanelScheduleManagement)
+        Me.Controls.Add(Me.PanelLogin)
         Me.Controls.Add(Me.PanelOrderManagement)
         Me.Controls.Add(Me.PanelProductManagement)
-        Me.Controls.Add(Me.PanelHome)
         Me.Controls.Add(Me.PanelPatientManagement)
         Me.Controls.Add(Me.PanelUserManagement)
         Me.Controls.Add(Me.PanelBlank)
@@ -1738,41 +1798,41 @@ Partial Class MainFrame
         Me.PanelLogin.ResumeLayout(False)
         Me.GroupBoxLogin.ResumeLayout(False)
         Me.GroupBoxLogin.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelHome.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.PanelUserManagement.ResumeLayout(False)
         Me.PanelUserManagement.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        CType(Me.PictureBoxBackUserManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewUserManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPatientManagement.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
+        CType(Me.PictureBoxBackPatientManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewPatientManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelProductManagement.ResumeLayout(False)
         Me.FlowLayoutPanel3.ResumeLayout(False)
+        CType(Me.PictureBoxBackProductManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewProductManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelOrderManagement.ResumeLayout(False)
         Me.FlowLayoutPanel4.ResumeLayout(False)
+        CType(Me.PictureBoxBackOrderManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewOrderManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelScheduleManagement.ResumeLayout(False)
         Me.FlowLayoutPanel5.ResumeLayout(False)
+        CType(Me.PictureBoxBackScheduleManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewScheduleManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelVisitManagement.ResumeLayout(False)
         Me.FlowLayoutPanel6.ResumeLayout(False)
-        CType(Me.DataGridViewVisitManagement, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxBackScheduleManagement, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxBackVisitManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewVisitManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxBackOrderManagement, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxBackProductManagement, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxBackPatientManagement, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxBackUserManagement, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1946,4 +2006,13 @@ Partial Class MainFrame
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripTextBoxSearch As ToolStripTextBox
+    Friend WithEvents ColumnCheckboxVisitManagement As DataGridViewCheckBoxColumn
+    Friend WithEvents ColumnIdVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnPatientIdVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnDateVisitedVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnDateFutureVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnTreatmentVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnWeightVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnBloodPressureVisitManagement As DataGridViewTextBoxColumn
+    Friend WithEvents ColumnDescriptionVisitManagement As DataGridViewTextBoxColumn
 End Class

@@ -18,6 +18,7 @@
         TableHelper.DataGridViewProduct = DataGridViewProductManagement
         TableHelper.DataGridViewOrder = DataGridViewOrderManagement
         TableHelper.DataGridViewSchedule = DataGridViewScheduleManagement
+        TableHelper.DataGridViewVisit = DataGridViewVisitManagement
 
         PanelRef.ProgressFormLabel = LabelLoadingUserManagement
 
@@ -94,6 +95,8 @@
 
     Private Sub ButtonVisitManagementMain_Click(sender As Object, e As EventArgs) Handles ButtonVisitManagementMain.Click
         Navigator.gotoPage(Navigator.PAGE_VISIT_MANAGEMENT)
+        ' call the DB for refreshing the table
+        Database.getAllVisit()
     End Sub
 
     Private Sub PictureBoxBackVisitManagement_Click(sender As Object, e As EventArgs) Handles PictureBoxBackVisitManagement.Click
@@ -146,6 +149,12 @@
     Sub showUserNotification(ByVal message As String, mode As Integer)
 
         MyForm.applyNotification(message, mode, LabelLoadingUserManagement)
+
+    End Sub
+
+    Sub showVisitNotification(ByVal message As String, mode As Integer)
+
+        MyForm.applyNotification(message, mode, LabelLoadingVisitManagement)
 
     End Sub
 
@@ -318,5 +327,32 @@
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Application.Exit()
+    End Sub
+
+    Private Sub LinkLabelDeleteVisitManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelDeleteVisitManagement.LinkClicked
+        Dim idTerpilih As ArrayList = TableHelper.getCheckedRows(DataGridViewVisitManagement)
+        For Each idNa As Integer In idTerpilih
+            Database.deleteVisit(idNa)
+        Next
+    End Sub
+
+    Private Sub LinkLabelEditVisitManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelEditVisitManagement.LinkClicked
+        Dim data As VisitData = TableHelper.getVisitManagementCheckedRow()
+        If (data IsNot Nothing) Then
+
+            Dim frame As New VisitForm
+            frame.MainFrameRef = Me
+            frame.Mode = MyForm.MODE_EDIT
+            frame.Data = data
+            frame.Visible = True
+
+            LabelLoadingVisitManagement.Visible = False
+        Else
+            showVisitNotification("Select data from the table first!", NOTIFICATION_WARNING)
+        End If
+    End Sub
+
+    Private Sub LinkLabelAddVisitManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelAddVisitManagement.LinkClicked
+
     End Sub
 End Class

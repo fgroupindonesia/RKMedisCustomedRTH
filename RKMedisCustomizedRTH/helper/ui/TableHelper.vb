@@ -1,5 +1,15 @@
 ﻿Module TableHelper
 
+    Private _dataGridVisit As DataGridView
+    Public Property DataGridViewVisit() As DataGridView
+        Get
+            Return _dataGridVisit
+        End Get
+        Set(ByVal value As DataGridView)
+            _dataGridVisit = value
+        End Set
+    End Property
+
     Private _dataGridSchedule As DataGridView
     Public Property DataGridViewSchedule() As DataGridView
         Get
@@ -157,6 +167,32 @@
 
     End Sub
 
+    Public Sub refreshTableVisit(ByVal entries As ArrayList)
+
+        If (DataGridViewVisit IsNot Nothing) Then
+            DataGridViewVisit.Rows.Clear()
+        End If
+
+        For Each satuan As VisitData In entries
+            Dim row As Object() = New Object() {False,
+                satuan.id,
+                satuan.patient_id,
+                satuan.date_visited,
+                satuan.date_future_visit,
+                satuan.treatment,
+                satuan.weight,
+                satuan.blood_pressure,
+                satuan.description
+            }
+
+            If (DataGridViewSchedule IsNot Nothing) Then
+                DataGridViewSchedule.Rows.Add(row)
+            End If
+
+        Next
+
+
+    End Sub
 
     Public Sub refreshTableSchedule(ByVal entries As ArrayList)
 
@@ -326,7 +362,7 @@
 
         Dim dataSchedule As ScheduleData = Nothing
 
-        For Each r As DataGridViewRow In DataGridViewUser.Rows
+        For Each r As DataGridViewRow In DataGridViewSchedule.Rows
             Dim checked As Boolean = r.Cells(0).Value
             If (checked) Then
 
@@ -345,6 +381,32 @@
         Next
 
         Return dataSchedule
+
+    End Function
+
+    Function getVisitManagementCheckedRow() As VisitData
+
+        Dim dataVisit As VisitData = Nothing
+
+        For Each r As DataGridViewRow In DataGridViewSchedule.Rows
+            Dim checked As Boolean = r.Cells(0).Value
+            If (checked) Then
+
+                dataVisit = New VisitData
+                dataVisit.id = r.Cells(1).Value
+                dataVisit.patient_id = r.Cells(2).Value
+                dataVisit.date_visited = r.Cells(3).Value
+                dataVisit.date_future_visit = r.Cells(4).Value
+                dataVisit.treatment = r.Cells(5).Value
+                dataVisit.weight = r.Cells(6).Value
+                dataVisit.blood_pressure = r.Cells(7).Value
+                dataVisit.description = r.Cells(8).Value
+
+                Exit For
+            End If
+        Next
+
+        Return dataVisit
 
     End Function
 
