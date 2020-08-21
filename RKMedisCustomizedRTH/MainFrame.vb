@@ -353,6 +353,9 @@
     End Sub
 
     Private Sub LinkLabelAddVisitManagement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelAddVisitManagement.LinkClicked
-
+        Dim frame As New VisitForm
+        frame.MainFrameRef = Me
+        frame.Mode = MyForm.MODE_NEW
+        frame.Visible = True
     End Sub
 End Class

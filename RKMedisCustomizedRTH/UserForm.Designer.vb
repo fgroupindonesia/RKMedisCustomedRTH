@@ -78,9 +78,9 @@ Partial Class UserForm
         '
         Me.LabelLoadingUserForm.Image = Global.RKMedisCustomizedRTH.My.Resources.Resources.loading
         Me.LabelLoadingUserForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LabelLoadingUserForm.Location = New System.Drawing.Point(315, 64)
+        Me.LabelLoadingUserForm.Location = New System.Drawing.Point(21, 54)
         Me.LabelLoadingUserForm.Name = "LabelLoadingUserForm"
-        Me.LabelLoadingUserForm.Size = New System.Drawing.Size(188, 42)
+        Me.LabelLoadingUserForm.Size = New System.Drawing.Size(252, 42)
         Me.LabelLoadingUserForm.TabIndex = 32
         Me.LabelLoadingUserForm.Text = "Loading..."
         Me.LabelLoadingUserForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
