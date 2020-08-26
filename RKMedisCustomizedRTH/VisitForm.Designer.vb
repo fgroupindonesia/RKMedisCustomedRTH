@@ -51,7 +51,7 @@ Partial Class VisitForm
         Me.ComboBoxPatientName.FormattingEnabled = True
         Me.ComboBoxPatientName.Location = New System.Drawing.Point(20, 116)
         Me.ComboBoxPatientName.Name = "ComboBoxPatientName"
-        Me.ComboBoxPatientName.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxPatientName.Size = New System.Drawing.Size(209, 21)
         Me.ComboBoxPatientName.TabIndex = 0
         '
         'LabelLoadingVisitForm
@@ -194,8 +194,9 @@ Partial Class VisitForm
         'TextBoxDescription
         '
         Me.TextBoxDescription.Location = New System.Drawing.Point(333, 252)
+        Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
-        Me.TextBoxDescription.Size = New System.Drawing.Size(128, 20)
+        Me.TextBoxDescription.Size = New System.Drawing.Size(122, 83)
         Me.TextBoxDescription.TabIndex = 57
         '
         'LinkLabelClearVisitForm

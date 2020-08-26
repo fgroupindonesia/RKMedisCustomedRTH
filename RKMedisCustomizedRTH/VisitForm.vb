@@ -56,7 +56,7 @@
 
     End Sub
 
-    Private Sub LinkLabelSaveVisitForm_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelSaveVisitForm.LinkClicked
+    Private Async Sub LinkLabelSaveVisitForm_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelSaveVisitForm.LinkClicked
 
         showNotificationVisit("Saving data...", MyForm.NOTIFICATION_LOADING)
 
@@ -89,5 +89,26 @@
         'Me.Dispose()
         LinkLabelClearVisitForm.Visible = True
         LinkLabelSaveVisitForm.Visible = False
+    End Sub
+
+    Private Sub VisitForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If (Mode = MODE_EDIT) Then
+            ' extract every data
+            TextBoxBloodPressure.Text = Data.blood_pressure
+            TextBoxDescription.Text = Data.description
+            NumericUpDownWeight.Value = Data.weight
+            ComboBoxTreatment.SelectedItem = Data.treatment
+
+            ComboBoxPatientName.SelectedItem = Data.patient_id
+
+            DateTimePickerDateVisited.Value = MyForm.getDate(Data.date_visited)
+            DateTimePickerTimeVisited.Text = MyForm.getTime(Data.date_visited)
+            DateTimePickerDateFuture.Value = MyForm.getDate(Data.date_future_visit)
+
+
+
+        End If
+
     End Sub
 End Class

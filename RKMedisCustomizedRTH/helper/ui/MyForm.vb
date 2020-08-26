@@ -33,6 +33,26 @@
 
     End Function
 
+    Function getDate(ByVal DateIn As String) As Date
+        ' convert from yyyy-mm-dd hh:mm:ss format splitted to
+        ' each separated different values
+        Dim dateVal As String() = DateIn.Split(" ")
+        Dim dateOnly As String() = dateVal(0).Split("-")
+
+        Dim dateChoosen As New Date(dateOnly(0), dateOnly(1), dateOnly(2))
+        Return dateChoosen
+
+    End Function
+
+    Function getTime(ByVal DateIn As String) As String
+        ' convert from yyyy-mm-dd hh:mm:ss format splitted to
+        ' each separated different values
+        Dim dateVal As String() = DateIn.Split(" ")
+
+        Return dateVal(1)
+
+    End Function
+
     Function getComputerBasedDate(ByVal humanDateFormat As String)
 
         Dim endVal As String = Nothing

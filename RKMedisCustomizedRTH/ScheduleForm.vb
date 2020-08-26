@@ -48,13 +48,13 @@ Public Class ScheduleForm
 
             ' convert from yyyy-mm-dd hh:mm:ss format splitted to
             ' each separated different values
-            Dim dateVal As String() = Data.date_choosen.Split(" ")
-            Dim dateOnly As String() = dateVal(0).Split("-")
+            'Dim dateVal As String() = Data.date_choosen.Split(" ")
+            'Dim dateOnly As String() = dateVal(0).Split("-")
 
-            Dim dateChoosen As New Date(dateOnly(0), dateOnly(1), dateOnly(2))
+            'Dim dateChoosen As New Date(dateOnly(0), dateOnly(1), dateOnly(2))
+            Dim dateChoosen As Date = MyForm.getDate(Data.date_choosen)
             DateTimePickerDateChosen.Value = dateChoosen
-
-            DateTimePickerTimeChosen.Text = dateVal(1)
+            DateTimePickerTimeChosen.Text = MyForm.getTime(Data.date_choosen)
 
         End If
 

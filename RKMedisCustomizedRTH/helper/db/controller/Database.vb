@@ -582,6 +582,8 @@ Module Database
 
     End Function
 
+
+
     Async Function saveProduct(ByVal anEntry As ProductData, Optional updateMode As Boolean = False, Optional productFormRef As ProductForm = Nothing) As Task
 
         Dim client As HttpClient = New HttpClient
@@ -660,6 +662,8 @@ Module Database
         End Try
 
     End Function
+
+
 
     Async Function saveSchedule(ByVal anEntry As ScheduleData, Optional updateMode As Boolean = False, Optional scheduleFormRef As ScheduleForm = Nothing) As Task
 
